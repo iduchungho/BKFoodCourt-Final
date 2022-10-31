@@ -24,7 +24,7 @@ FACULTY OF COMPUTER SCIENCE AND ENGINEERING
 | --- | --- |  --- |  ---  |
 |  1  |  2013381   |  Hồ Đức Hưng    |   hung.hoduccse@hcmut.edu.vn    |
 |  2  |   |      |       |
-|  3  |  2120049   | Thới Duy Phát      |  phat.thoi2662hcmut.edu.vn     |
+|  3  |  2120049   |Thới Duy Phát      |  phat.thoi266@hcmut.edu.vn     |
 |  4  |     |      |       |
 
 #### update git mới nhất
