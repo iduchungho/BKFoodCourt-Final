@@ -1,14 +1,15 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import TopNavbar from './component/UI/Navbar';
+import UINavbar from './component/UI/Navbar';
+import Home from './component/modules/home/Home';
 
 function App() {
   return (
     <>
       <Router>
-        {/* <TopNavbar /> */}
+        <UINavbar/>
         <Routes>
-          <Route path='/' element={<TopNavbar />} />
+          <Route path='/' element={<Home />} />
         </Routes>
       </Router>
     </>
