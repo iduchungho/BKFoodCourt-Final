@@ -5,7 +5,7 @@
  */
 
 
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -16,6 +16,7 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 
 import './Navbar.css';
 import Logo from './Logo';
+import Cart from '../modules/Cart/Cart';
 
 
 function UINavbar() {
@@ -58,17 +59,24 @@ function UINavbar() {
                 </Navbar.Offcanvas>
                 <div className='btn-gr'>
                     <Button className='cart-btn' variant='light' onClick={handleShowCart}><BsCart2 /></Button>
-                    <Offcanvas 
-                        show={showCart} 
+                    <Offcanvas
+                        show={showCart}
                         onHide={handleCloseCart}
-                        placement = 'end'
-                        backdrop = 'static'
+                        placement='end'
+                        backdrop='static'
+                        className='offcanvas-size-xl'
                     >
                         <Offcanvas.Header>
                             <Offcanvas.Title>
-                                <BsXLg onClick={handleCloseCart} />
+                                <div className='title'>
+                                    <BsXLg onClick={handleCloseCart} />
+                                    <div className='cart-title'>Giỏ đồ ăn</div>
+                                </div>
                             </Offcanvas.Title>
                         </Offcanvas.Header>
+                        <Offcanvas.Body className='offcanvas-body1'>
+                            <Cart />
+                        </Offcanvas.Body>
                     </Offcanvas>
                     <Button>Đăng nhập</Button>
                 </div>
@@ -78,11 +86,3 @@ function UINavbar() {
 }
 
 export default UINavbar;
-
-export function BottomNavbar() {
-    return (
-        <div>
-
-        </div>
-    );
-}
