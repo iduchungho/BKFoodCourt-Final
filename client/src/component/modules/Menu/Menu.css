@@ -1,0 +1,14 @@
+.menu{
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 1.5rem;
+}
+
+.menu-container{
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    row-gap: 2.5rem;
+    column-gap: 1.5rem; 
+    padding-bottom: 1.5rem;
+}
