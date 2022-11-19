@@ -49,8 +49,8 @@ function UINavbar() {
                                 title="Danh mục"
                                 id={`offcanvasNavbarDropdown-expand-xl`}
                             >
-                                <NavDropdown.Item href="#action3">Đồ ăn</NavDropdown.Item>
-                                <NavDropdown.Item href="#action4">
+                                <NavDropdown.Item href="#Food">Đồ ăn</NavDropdown.Item>
+                                <NavDropdown.Item href="#Drink">
                                     Đồ uống
                                 </NavDropdown.Item>
                             </NavDropdown>

@@ -1,6 +1,6 @@
 import React from "react";
 
-import ItemInCart, { TotalFoodItem, TotalConfirm } from "../../UI/FoodItem";
+import ItemInCart, { TotalConfirm } from "../../UI/Item";
 import './Cart.css';
 
 export default function Cart(){

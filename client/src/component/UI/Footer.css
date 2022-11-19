@@ -23,14 +23,18 @@
     display: flex;
 }
 .footer-text-conpany{
+    text-align: center;
     width: 25%;
 }
 .footer-text-product{
+    text-align: center;
     width: 25%;
 }
 .footer-text-link{
+    text-align: center;
     width: 25%;
 }
 .footer-text-contact{
+    text-align: center;
     width: 25%;
 }

@@ -1,9 +1,11 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 import { FiMinus } from "react-icons/fi";
+import { BsXLg } from "react-icons/bs";
 import Button from 'react-bootstrap/Button';
+import Offcanvas from 'react-bootstrap/OffCanvas';
 
-import './FoodItem.css'
+import './Item.css'
 
 export default function ItemInCart(){
     const [count, setCount] = useState(1);
@@ -15,6 +17,11 @@ export default function ItemInCart(){
             setCount(count - 1)
         }
     };
+    useEffect(()=>{
+        window.localStorage.setItem("counter", count)
+        console.log(window.localStorage.getItem("counter"));
+    },[count])
+
     return (
         <>
             <div className="food-container">
@@ -68,9 +75,12 @@ export function TotalConfirm() {
 }
 
 export function FoodItem(){
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
     return (
         <div className="item">
-            <div className="item-container">
+            <div className="item-container" onClick={handleShow}>
                 <img
                     className="item-img"
                     src= 'https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/VNITE2022031904461763381/detail/menueditor_item_d293659bcfc84c7ab36ac3c097a074e6_1647666966181761006.webp'
@@ -90,6 +100,21 @@ export function FoodItem(){
                     </div>
                 </div>
             </div>
+            <Offcanvas
+                show={show}
+                onHide={handleClose}
+                placement='end'
+                className='offcanvas-size-xl'
+            >
+                <Offcanvas.Header>
+                    <Offcanvas.Title>
+                        <div className='title'>
+                            <BsXLg onClick={handleClose} />
+                        </div>
+                    </Offcanvas.Title>
+                </Offcanvas.Header>
+
+            </Offcanvas>
         </div>
     );
 }
