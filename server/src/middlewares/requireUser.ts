@@ -14,6 +14,7 @@ export const adminWhiteList = [
     'admin@BKFood.com',
     'hung.hoduccse@hcmut.edu.vn'
 ]
+
 export const requireUser = (req: Request, res: Response, next: NextFunction) => {
     if (!res.locals.user) {
         return res.status(StatusCodes.UNAUTHORIZED).send("Unauthorized")

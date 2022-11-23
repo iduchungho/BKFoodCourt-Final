@@ -14,7 +14,6 @@ model User {
     id String @id @default(auto()) @map("_id") @db.ObjectId
     username String @unique
     email String @unique
-    salt String
     password String
     role String
     cart Cart?
@@ -30,7 +29,7 @@ model UploadFood {
     updatedAt DateTime @updatedAt
     imageUrl String
 }
-model cartItem {
+model CartItem {
     id String @id @default(auto()) @map("_id") @db.ObjectId
     title String
     price String
@@ -43,7 +42,7 @@ model Cart {
     id String @id @default(auto()) @map("_id") @db.ObjectId
     userId String @unique
     user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-    cartItems cartItem[]
+    cartItems CartItem[]
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
 }

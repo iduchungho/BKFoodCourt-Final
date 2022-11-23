@@ -14,6 +14,7 @@ import cors, { CorsOptions } from "cors";
 import express, { NextFunction, Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 import deserializeUser from "./middlewares/deserializeUser";
+import userRouter from "./modules/user/user.route";
 import ExpressError from "./utils/expressError";
 import log from "./utils/logger";
 if (process.env.NODE_ENV !== 'production') {
@@ -38,7 +39,7 @@ app.use(deserializeUser)
 /**
  * Routes Definitions
 */
-
+app.use('/api/users',userRouter)
 /**
  * Health Check, Error Handling, and Running the Server
 */
