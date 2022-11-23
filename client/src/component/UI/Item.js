@@ -7,7 +7,7 @@ import Offcanvas from 'react-bootstrap/OffCanvas';
 
 import './Item.css'
 
-export default function ItemInCart(){
+export default function ItemInCart(obj){
     const [count, setCount] = useState(1);
     const plus = () => {
         setCount(count + 1)
@@ -32,14 +32,14 @@ export default function ItemInCart(){
                 </div>
                 <img
                     className="food-img"
-                    src="https://d1sag4ddilekf6.azureedge.net/compressed/items/VNITE2022031905412311918/photo/menueditor_item_cb0f322be0674a6ea118872593991850_1647672615413621671.jpg"
+                    src={obj.img}
                     alt="img"
                 />
                 <div className="food-name">
-                    Trà Tắc
+                    {obj.name}
                 </div>
                 <div className="food-price">
-                    9.000đ
+                    {obj.price}
                 </div>
             </div>
         </>
@@ -74,24 +74,25 @@ export function TotalConfirm() {
     );
 }
 
-export function FoodItem(){
+export function FoodItem(obj){
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
     return (
         <div className="item">
             <div className="item-container" onClick={handleShow}>
                 <img
                     className="item-img"
-                    src= 'https://d1sag4ddilekf6.azureedge.net/compressed_webp/items/VNITE2022031904461763381/detail/menueditor_item_d293659bcfc84c7ab36ac3c097a074e6_1647666966181761006.webp'
-                    alt="img"
+                    src= {obj.img}
+                    alt = 'img'
                 />
                 <div className="item-txt">
                     <p className="item-description">
-                        Combo 1 gà bó xôi cắt sẵn + 1 gà ủ muối cắt sẵn + 2 đồ uống bất kỳ
+                        {obj.name}
                     </p>
                     <div className="price_btn">
-                        <h6>9.000đ</h6>
+                        <h6>{obj.price}</h6>
                         <Button 
                             className="add-btn"
                         >
@@ -113,6 +114,9 @@ export function FoodItem(){
                         </div>
                     </Offcanvas.Title>
                 </Offcanvas.Header>
+                <Offcanvas.Body>
+                    {ItemInCart(obj)}
+                </Offcanvas.Body>
 
             </Offcanvas>
         </div>

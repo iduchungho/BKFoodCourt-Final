@@ -9,7 +9,7 @@ import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+// import NavDropdown from 'react-bootstrap/NavDropdown';
 import { BsCart2, BsXLg } from "react-icons/bs";
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
@@ -42,10 +42,10 @@ function UINavbar() {
                     </Offcanvas.Header>
                     <Offcanvas.Body>
                         <Nav className="justify-content-end flex-grow-1 pe-3">
-                            <Nav.Link href="#action1">Trang chủ</Nav.Link>
+                            <Nav.Link href="#home">Trang chủ</Nav.Link>
                             <Nav.Link href="#action2">Về Chúng tôi</Nav.Link>
-                            <Nav.Link href="#action5">Menu</Nav.Link>
-                            <NavDropdown
+                            <Nav.Link href="#menu-section">Menu</Nav.Link>
+                            {/* <NavDropdown
                                 title="Danh mục"
                                 id={`offcanvasNavbarDropdown-expand-xl`}
                             >
@@ -53,7 +53,7 @@ function UINavbar() {
                                 <NavDropdown.Item href="#Drink">
                                     Đồ uống
                                 </NavDropdown.Item>
-                            </NavDropdown>
+                            </NavDropdown> */}
                         </Nav>
                     </Offcanvas.Body>
                 </Navbar.Offcanvas>

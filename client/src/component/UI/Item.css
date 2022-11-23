@@ -75,8 +75,11 @@
     border-radius: 0.5rem;
     border: 1px solid white;
 }
+.item-txt{
+    width: 100%;
+}
 .item-container:hover{
-    border: 1px solid rgb(29, 29, 219);
+    border: 1px solid rgb(34, 89, 171);
 }
 .item-img{
     border-radius: 0.5rem;
@@ -91,10 +94,10 @@
 .price_btn{
     display: flex;
     align-items: center;
+    width: 100%;
 }
 .add-btn{
     display: flex !important;
-    justify-content: center;
     align-items: center;
     margin-left: auto;
     margin-right: 5px;
