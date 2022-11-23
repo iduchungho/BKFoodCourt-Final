@@ -14,6 +14,7 @@ import cors, { CorsOptions } from "cors";
 import express, { NextFunction, Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 import deserializeUser from "./middlewares/deserializeUser";
+import uploadFoodRouter from "./modules/uploadFood.ts/uploadFood.route";
 import userRouter from "./modules/user/user.route";
 import ExpressError from "./utils/expressError";
 import log from "./utils/logger";
@@ -40,6 +41,7 @@ app.use(deserializeUser)
  * Routes Definitions
 */
 app.use('/api/users',userRouter)
+app.use('/api/uploadFoods',uploadFoodRouter)
 /**
  * Health Check, Error Handling, and Running the Server
 */

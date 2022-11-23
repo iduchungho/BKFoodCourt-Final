@@ -17,10 +17,11 @@ model User {
     password String
     role String
     cart Cart?
+    trascations Transaction[]
 }
 model UploadFood {
     id String @id @default(auto()) @map("_id") @db.ObjectId
-    title String
+    title String @unique
     price String
     category String
     rating String
@@ -34,7 +35,7 @@ model CartItem {
     title String
     price String
     quantity String @default("1")
-    note String?
+    itemNote String?
     cartId String
     cart Cart @relation(fields: [cartId], references: [id], onDelete: Cascade, onUpdate: Cascade)
 }
@@ -45,4 +46,16 @@ model Cart {
     cartItems CartItem[]
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
+}
+model Transaction {
+    id String @id @default(auto()) @map("_id") @db.ObjectId
+    userId String
+    user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    status String
+    address String
+    phone String
+    note String
+    total String
 }
