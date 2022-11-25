@@ -43,7 +43,7 @@ function UINavbar() {
                     <Offcanvas.Body>
                         <Nav className="justify-content-end flex-grow-1 pe-3">
                             <Nav.Link href="#home">Trang chủ</Nav.Link>
-                            <Nav.Link href="#action2">Về Chúng tôi</Nav.Link>
+                            {/* <Nav.Link href="#action2">Về Chúng tôi</Nav.Link> */}
                             <Nav.Link href="#menu-section">Menu</Nav.Link>
                             {/* <NavDropdown
                                 title="Danh mục"

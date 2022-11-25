@@ -1,9 +1,10 @@
-import React, {useEffect, useState} from "react";
+import React, { useState} from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 import { FiMinus } from "react-icons/fi";
 import { BsXLg } from "react-icons/bs";
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/OffCanvas';
+import Form from 'react-bootstrap/Form';
 
 import './Item.css'
 
@@ -17,10 +18,6 @@ export default function ItemInCart(obj){
             setCount(count - 1)
         }
     };
-    useEffect(()=>{
-        window.localStorage.setItem("counter", count)
-        console.log(window.localStorage.getItem("counter"));
-    },[count])
 
     return (
         <>
@@ -74,6 +71,33 @@ export function TotalConfirm() {
     );
 }
 
+// export function ItemInfor(obj){
+//     return (
+//         <div>
+//             {ItemInCart(obj)}
+//             <div className="form-ctn_top"/>
+//             <div className="form_ctn">
+//                 <Form>
+//                     <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+//                         <Form.Label><h5>Ghi chú đặc biệt</h5></Form.Label>
+//                         <Form.Control as="textarea" rows={3} />
+//                     </Form.Group>
+//                 </Form>
+//             </div>
+//             <div className="add_to_cart">
+//                 <div className="add_to_cart-ctn">
+//                     {/* <div>
+//                         plus
+//                     </div> */}
+//                     <div className="add_to_cart-btn">
+//                         <Button variant="primary" className="add_to_cart-btn-primary">Thêm vào giỏ hàng</Button>
+//                     </div>
+//                 </div>
+//             </div>
+//         </div>
+//     );
+// }
+
 export function FoodItem(obj){
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -114,8 +138,29 @@ export function FoodItem(obj){
                         </div>
                     </Offcanvas.Title>
                 </Offcanvas.Header>
-                <Offcanvas.Body>
-                    {ItemInCart(obj)}
+                <Offcanvas.Body className="no-padding">
+                    <div>
+                        {ItemInCart(obj)}
+                        <div className="form-ctn_top" />
+                        <div className="form_ctn">
+                            <Form>
+                                <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                                    <Form.Label><h5>Ghi chú đặc biệt</h5></Form.Label>
+                                    <Form.Control as="textarea" rows={3} />
+                                </Form.Group>
+                            </Form>
+                        </div>
+                        <div className="add_to_cart">
+                            <div className="add_to_cart-ctn">
+                                {/* <div>
+                                    plus
+                                </div> */}
+                                <div className="add_to_cart-btn">
+                                    <Button variant="primary" className="add_to_cart-btn-primary">Thêm vào giỏ hàng</Button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </Offcanvas.Body>
 
             </Offcanvas>

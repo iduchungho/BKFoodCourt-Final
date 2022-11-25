@@ -10,7 +10,7 @@ export default function Footer() {
             <div className="footer-line"/>
             <div className="footer-text_container">
                 <div className="footer-text-conpany">
-                    Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Về chúng tôi
                 </div>
                 <div className="footer-text-product">
                     Đồ Ăn, đồ uống

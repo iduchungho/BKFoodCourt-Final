@@ -25,10 +25,10 @@ export default function Home(){
             />
             <div className='infor__section'>
                 <div>
-                    <h3>Căn tin</h3>
-                    <h1>Trường đại học Bách Khoa - ĐHQG HCM</h1>
-                    <h5>Món khác, lẩu & nướng - Quay, gà</h5>
-                    <p>Giờ mở cửa hôm nay </p>
+                    <h3 className='text__bluesky. text__name_2'>Căn tin</h3>
+                    <h1 className='text__name'>Trường Đại Học <span className='text__bluesky.'>Bách Khoa</span> - ĐHQG HCM</h1>
+                    <h5 className='text_another'>Các món: Bánh mì & Xôi - Phở, Bún bò và nhiều món ngon khác nữa</h5>
+                    <p><span className='opening__hours'>Giờ mở cửa</span> <span className='opening__hours hours'>Hôm nay 05:50 - 17:00</span></p>
                 </div>
             </div>
             <ul className='food-type_tab'>
