@@ -1,17 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import ItemInCart, { TotalConfirm } from "../../UI/Item";
 import './Cart.css';
-import {f} from '../data'
 
-export default function Cart(){
+
+export default function Cart() {
+    var foodarr = JSON.parse(window.localStorage.getItem("FOOD_ITEM"));
+    if (foodarr === null) foodarr = [];
+    useEffect(() => {
+        var foodarr = JSON.parse(window.localStorage.getItem("FOOD_ITEM"));
+        if (foodarr === null) foodarr = [];
+        // console.log("effect");
+    }, [])
     return (
         <>
-            <div className="cart-container" id = 'cart-style1'>
-                {ItemInCart(f)}
-                {ItemInCart(f)}
-                {ItemInCart(f)}
-                {ItemInCart(f)}
+            <div className="cart-container" id='cart-style1'>
+                {foodarr.map((f) => (
+                    ItemInCart(f)
+                ))}
             </div>
             <TotalConfirm />
         </>

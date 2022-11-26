@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
+import 'react-toastify/dist/ReactToastify.css';
 import UINavbar from './component/UI/Navbar';
 import Footer from './component/UI/Footer';
 import Home from './component/modules/home/Home';

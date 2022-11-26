@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 import { FiMinus } from "react-icons/fi";
 import { BsXLg } from "react-icons/bs";
@@ -8,23 +8,44 @@ import Form from 'react-bootstrap/Form';
 
 import './Item.css'
 
-export default function ItemInCart(obj){
-    const [count, setCount] = useState(1);
+export default function ItemInCart(obj) {
+    const [count, setCount] = useState(obj.amout);
     const plus = () => {
         setCount(count + 1)
     };
     const minus = () => {
-        if(count > 0){
+        if (count > 0) {
             setCount(count - 1)
         }
     };
 
+    useEffect(() => {
+        obj.amout = count;
+        // console.log(count)
+    }, [count])
+
+    const priceOrRemove = (obj) => {
+        if(count === 0)
+            return (
+                <button 
+                    className="btn-remove" 
+                    onClick={() => {
+                        let list = JSON.parse(window.localStorage.getItem("FOOD_ITEM"));
+                        console.log(list)
+                        list.pop();
+                        window.localStorage.setItem("FOOD_ITEM", JSON.stringify(list));
+                    }}>
+                    Remove
+                </button>);
+        return (<span>{obj.price}</span>)
+    }
+
     return (
         <>
-            <div className="food-container">
+            <div className="food-container" key={`${obj.name}`}>
                 <div className="food-count">
                     <button className="btn-count" onClick={minus}><FiMinus /></button>
-                    {count}
+                    <span className="fs__13px">{count}</span>
                     <button className="btn-count" onClick={plus}><AiOutlinePlus /></button>
                 </div>
                 <img
@@ -36,17 +57,18 @@ export default function ItemInCart(obj){
                     {obj.name}
                 </div>
                 <div className="food-price">
-                    {obj.price}
+                    {priceOrRemove(obj)}
                 </div>
             </div>
+            <div className="div-line"/>
         </>
     );
 }
 
-export function TotalFoodItem(){
+export function TotalFoodItem() {
     return (
         <>
-            <div className="div-line"/>
+            <div className="div-line" />
             <div className="total-container">
                 <div className="Summary">
                     Tổng
@@ -98,18 +120,36 @@ export function TotalConfirm() {
 //     );
 // }
 
-export function FoodItem(obj){
+export function FoodItem(obj) {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const [localStorage, setLocalStorage] = useState([])
+    const handleSave = () => {
+        let list_f = localStorage;
+        list_f.push(obj);
+        setLocalStorage(list_f);
+        console.log(localStorage);
+
+        const f_arr = window.localStorage.getItem("FOOD_ITEM");
+        if (f_arr != null) {
+            let list_f_arr = JSON.parse(f_arr);
+            list_f_arr = list_f_arr.concat(localStorage);
+            window.localStorage.setItem("FOOD_ITEM", JSON.stringify(list_f_arr));
+        }
+        else {
+            window.localStorage.setItem("FOOD_ITEM", JSON.stringify(localStorage));
+        }
+        window.location.reload();
+    }
 
     return (
         <div className="item">
             <div className="item-container" onClick={handleShow}>
                 <img
                     className="item-img"
-                    src= {obj.img}
-                    alt = 'img'
+                    src={obj.img}
+                    alt='img'
                 />
                 <div className="item-txt">
                     <p className="item-description">
@@ -117,10 +157,10 @@ export function FoodItem(obj){
                     </p>
                     <div className="price_btn">
                         <h6>{obj.price}</h6>
-                        <Button 
+                        <Button
                             className="add-btn"
                         >
-                            <AiOutlinePlus/>
+                            <AiOutlinePlus />
                         </Button>
                     </div>
                 </div>
@@ -156,7 +196,7 @@ export function FoodItem(obj){
                                     plus
                                 </div> */}
                                 <div className="add_to_cart-btn">
-                                    <Button variant="primary" className="add_to_cart-btn-primary">Thêm vào giỏ hàng</Button>
+                                    <Button variant="primary" className="add_to_cart-btn-primary" onClick={handleSave}>Thêm vào giỏ hàng</Button>
                                 </div>
                             </div>
                         </div>

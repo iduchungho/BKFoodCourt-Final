@@ -1,3 +1,4 @@
 .cart-container{
-    overflow: hidden;
+    overflow: auto;
+    height: 80%;
 }
