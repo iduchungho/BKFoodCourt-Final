@@ -17,12 +17,23 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import './Navbar.css';
 import Logo from './Logo';
 import Cart from '../modules/Cart/Cart';
+import { CartState } from '../../context/CartContex';
 
 
 function UINavbar() {
     const [showCart, setShowCart] = useState(false);
+    const {cart} = CartState();
     const handleShowCart = () => setShowCart(true);
     const handleCloseCart = () => setShowCart(false);
+
+    const cartInfo = () => {
+        return (
+            <>
+                <BsCart2/>
+                {cart.cartTotalQuantity ? <span className='ml__5px'>{cart.cartTotalQuantity} đ</span> : <span></span>}
+            </>
+        )
+    }
 
 
     return (
@@ -58,7 +69,7 @@ function UINavbar() {
                     </Offcanvas.Body>
                 </Navbar.Offcanvas>
                 <div className='btn-gr'>
-                    <Button className='cart-btn' variant='light' onClick={handleShowCart}><BsCart2 /></Button>
+                    <Button className='cart-btn' variant={cart.cartTotalQuantity === 0 ? "light" : "success"} onClick={handleShowCart}>{cartInfo()}</Button>
                     <Offcanvas
                         show={showCart}
                         onHide={handleCloseCart}

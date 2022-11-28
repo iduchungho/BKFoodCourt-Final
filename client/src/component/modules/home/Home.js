@@ -1,11 +1,12 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 // import { FoodItem } from '../../UI/Item';
-import MenuFood, {MenuDrink} from '../Menu/Menu';
-import SearchBar from '../../UI/Searchbar';
+import MenuFood, { MenuDrink } from '../Menu/Menu';
+import Form from "react-bootstrap/Form"
+import Button from "react-bootstrap/Button";
 import bunsbo from '../../../img/paper.png'
 import './Home.css'
 
-export default function Home(){
+export default function Home() {
     const [Food, setFood] = useState("food-type active")
     const [Drink, setDrink] = useState("food-type")
     const onClickFood = () => {
@@ -17,10 +18,10 @@ export default function Home(){
         setFood("food-type")
     }
     return (
-        <div id = "home">
+        <div id="home">
             <img
-                src= {bunsbo}
-                alt = 'bunsbo'
+                src={bunsbo}
+                alt='bunsbo'
                 className='paper'
             />
             <div className='infor__section'>
@@ -33,10 +34,20 @@ export default function Home(){
             </div>
             <ul className='food-type_tab'>
                 <li className={Food} onClick={onClickFood}><a href="#Food">ĐỒ ĂN</a></li>
-                <li className= {Drink} onClick = {onClickDrink}><a href='#Drink'>ĐỒ UỐNG</a></li>
-                <div className='search-bar'><SearchBar/></div>
+                <li className={Drink} onClick={onClickDrink}><a href='#Drink'>ĐỒ UỐNG</a></li>
+                <div className='search-bar'>
+                    <Form className="d-flex">
+                        <Form.Control
+                            type="search"
+                            placeholder="Search"
+                            className="me-2"
+                            aria-label="Search"
+                        />
+                        <Button variant="outline-success">Search</Button>
+                    </Form>
+                </div>
             </ul>
-            <div className='home-container' id = "menu-section">
+            <div className='home-container' id="menu-section">
                 <MenuFood />
                 <MenuDrink />
             </div>
