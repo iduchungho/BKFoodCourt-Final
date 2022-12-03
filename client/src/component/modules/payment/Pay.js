@@ -36,8 +36,10 @@ export default function PayComponent() {
                 </div>
                 <div className="box2">
                     <Card variant='light' style={{ width: '50rem' }}>
-                        <Card.Title className="thongtinlienhe">
-                            Thông tin liên hệ
+                        <Card.Title >
+                            <span className="thongtinlienhe">
+                                Thông tin liên hệ
+                            </span>
                         </Card.Title>
                         <Card.Body className="bandacotaikhoan">
                             Bạn đã có tài khoản?
@@ -60,8 +62,10 @@ export default function PayComponent() {
 
                 <div className="box3">
                     <Card variant='light' style={{ width: '50rem' }}>
-                        <Card.Title className="phuongthucthanhtoan">
-                            Phương Thức Thanh Toán
+                        <Card.Title>
+                            <span className="phuongthucthanhtoan">
+                                Phương thức thanh toán
+                            </span>
                         </Card.Title>
                         <Card.Body className="inputtt">
                             <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked />

@@ -33,6 +33,7 @@
   }
   
   .Phuongthucgiaohang {
+    display: flex;
     margin-top: 20px;
     margin-left: 40px;
     
@@ -40,8 +41,10 @@
   .phuongthucthanhtoan{
     margin-left: 40px;
     margin-top: 20px;
+    display: flex;
   }
   .thongtinlienhe {
+    display: flex;
     margin-left: 40px;
     margin-top: 20px;
   }
