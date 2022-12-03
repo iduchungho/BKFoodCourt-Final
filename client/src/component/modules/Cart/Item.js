@@ -104,7 +104,7 @@ export function FoodItem(obj) {
                         {obj.name}
                     </p>
                     <div className="price_btn">
-                        <h6>{obj.price}</h6>
+                        <h6>{obj.price}</h6>    
                         <Button
                             className="add-btn"
                         >
