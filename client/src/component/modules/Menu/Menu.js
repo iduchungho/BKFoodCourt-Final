@@ -21,7 +21,7 @@ export function MenuDrink() {
         <div id="Drink" className="menu">
             <h2>Đồ uống</h2>
             <div className="menu-container">
-                abc
+                {f.map((i) => FoodItem(i))}
             </div>
         </div>
     );

@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/OffCanvas';
 import Form from 'react-bootstrap/Form';
 
-import './Item.css'
+import './styles/Item.css'
 import { CartState } from "../../../context/CartContex";
 
 export default function ItemInCart(obj) {

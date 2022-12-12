@@ -12,7 +12,7 @@
 
 ul{
     list-style-type: none;
-    background-color: #f1f1f1;
+    background-color: #f7f7f7;
     /* border-bottom: 1px solid black; */
 }
 li a {
@@ -27,9 +27,10 @@ li a {
     margin-bottom: 0px;
     display: flex;
     position: sticky;
-    top: 74px;
-    box-shadow: 0 -2px 6px 0 rgb(28 28 28 / 6%);
-    color : black
+    top: 86.89px;
+    /* box-shadow: 0 -2px 6px 0 rgb(28 28 28 / 6%); */
+    color : black;
+    /* border-top: 2px solid #a4a4a4 */
 }
 .food-type{
     padding: 1rem;
@@ -53,6 +54,7 @@ li a {
 .infor__section{
     display: flex;
     padding: 50px;
+    /* height: calc(100vh - 217.16px); */
 }
 
 .text__bluesky{
@@ -84,6 +86,9 @@ li a {
     letter-spacing: -.64px;
     align-items: center;
 }
+/* .wallpaper{
+    height: 100vh;
+} */
 
 @media only screen and (max-width: 600px) {
     .text__name {
@@ -110,4 +115,34 @@ li a {
         font-weight: 400;
         font-size: 12px;
     }
+    .food-type_tab {
+        margin-bottom: 0px;
+        display: flex;
+        position: sticky;
+        top: 67px;
+        /* box-shadow: 0 -2px 6px 0 rgb(28 28 28 / 6%); */
+        color: black;
+        /* border-top: 2px solid #a4a4a4 */
+        padding: 10px;
+    }
+    .food-type {
+        padding: 0.2rem;
+        color: black;
+    }
+    li a {
+        display: block;
+        color: #000;
+        padding: 4px 4px;
+        text-decoration: none;
+        font-size: 13px;
+        justify-content: left;
+    }
+    .search-bar{
+        padding: 5px;
+        display: flex;
+        justify-content: right;
+    }
+    /* .input__gr{
+        height: 33px;
+    } */
 }
