@@ -19,7 +19,7 @@ import Logo from './Logo';
 import Cart from '../modules/Cart/Cart';
 import { CartState } from '../../context/CartContex';
 import { useNavigate } from 'react-router-dom';
-import UserAvt from '../utils/user.utils';
+// import UserAvt from '../utils/user.utils';
 
 
 function UINavbar() {
@@ -45,9 +45,9 @@ function UINavbar() {
     const handleRegister = () => {
         navigate('/register');
     }
-    const handleLogin = () => {
-        navigate('/login');
-    }
+    // const handleLogin = () => {
+    //     navigate('/login');
+    // }
     return (
         <Navbar collapseOnSelect expand="xl" bg="light" variant="light" sticky='top' key='sm'>
             <Container className='nv-container'>
@@ -65,9 +65,9 @@ function UINavbar() {
                     </Offcanvas.Header>
                     <Offcanvas.Body>
                         <Nav className="justify-content-end flex-grow-1 pe-3">
-                            <Nav.Link href="#home">Trang chủ</Nav.Link>
+                            <Nav.Link href="/#home">Trang chủ</Nav.Link>
                             {/* <Nav.Link href="#action2">Về Chúng tôi</Nav.Link> */}
-                            <Nav.Link href="#menu-section">Menu</Nav.Link>
+                            <Nav.Link href="/#menu-section">Menu</Nav.Link>
                             {/* <NavDropdown
                                 title="Danh mục"
                                 id={`offcanvasNavbarDropdown-expand-xl`}
@@ -102,9 +102,9 @@ function UINavbar() {
                         </Offcanvas.Body>
                     </Offcanvas>
                     <Button variant="secondary" onClick={handleRegister}>Đăng ký</Button>
-                    <Button variant="primary" onClick={handleLogin}>Đăng nhập</Button>
+                    {/* <Button variant="primary" onClick={handleLogin}>Đăng nhập</Button> */}
                     {/* {onLogin()} */}
-                    <UserAvt/>
+                    {/* <UserAvt/> */}
                     {/* <Button>Đăng nhập</Button> */}
                 </div>
             </Container>
