@@ -132,7 +132,7 @@
   
   
   /* Customize the label (the container) */
-  .container {
+  .pay-container {
     display: block;
     position: relative;
     padding-left: 35px;
@@ -154,7 +154,7 @@
   }
   
   /* Hide the browser's default radio button */
-  .container input {
+  .pay-container input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
@@ -174,12 +174,12 @@
   }
   
   /* On mouse-over, add a grey background color */
-  .container:hover input~.checkmark {
+  .pay-container:hover input~.checkmark {
     background-color: #ccc;
   }
   
   /* When the radio button is checked, add a blue background */
-  .container input:checked~.checkmark {
+  .pay-container input:checked~.checkmark {
     background-color: #2196F3;
   }
   
@@ -191,12 +191,12 @@
   }
   
   /* Show the indicator (dot/circle) when checked */
-  .container input:checked~.checkmark:after {
+  .pay-container input:checked~.checkmark:after {
     display: block;
   }
   
   /* Style the indicator (dot/circle) */
-  .container .checkmark:after {
+  .pay-container .checkmark:after {
     top: 9px;
     left: 9px;
     width: 8px;
