@@ -6,6 +6,7 @@ import Footer from './component/UI/Footer';
 import Home from './component/modules/home/Home';
 import Cart from './component/modules/Cart/Cart';
 import PayComponent from './component/modules/payment/Pay';
+
 function App() {
   return (
     <>

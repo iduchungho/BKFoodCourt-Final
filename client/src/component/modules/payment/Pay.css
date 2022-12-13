@@ -96,6 +96,7 @@
     margin-left: 20px;
   }
   .gia3 {
+
     font-weight: 600;
     --tw-text-opacity: 1;
     color: rgba(239, 68, 68, var(--tw-text-opacity));
@@ -107,15 +108,31 @@
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-  
+    border-top: 1px solid rgb(240, 233, 233);
   }
-  
+  .giohang{
+    font-size: 40px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+  }
   .tongcong {
+    display: grid;
     font-weight: 600;
     font-size: 0.875rem;
     line-height: 1.25rem;
   }
-  
+  .text-xs {
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+  .mt-2 {
+    margin-top: 0.5rem;
+  }
+  .text-gray-500 {
+    --tw-text-opacity: 1;
+    color: rgba(107, 114, 128, var(--tw-text-opacity));
+  } 
   
   .ghichu {
     font-weight: 600;
@@ -127,10 +144,13 @@
     display: flex;
     /* align-items: center; */
     justify-content: center;
-    margin-left: 50px;
+    margin-left: 60px;
   }
+
   
-  
+  .form-check-label{
+    margin-left: 10px;
+  }
   /* Customize the label (the container) */
   .container {
     display: block;

@@ -1,4 +1,4 @@
-import React from 'react';
+import { React, useState, useEffect } from 'react';
 
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -7,6 +7,22 @@ import './Pay.css'
 
 
 export default function PayComponent() {
+
+
+  
+    const [items, setItems] = useState([]);
+    const [items2, setItems2] = useState([]);
+    useEffect(() => {
+        const items = JSON.parse(localStorage.getItem('FOOD_TOTAL_QUANTITY'));
+        const items2 = JSON.parse(localStorage.getItem('FOOD_TOTAL_AMOUNT'));
+        if (items || items2) {
+            setItems(items);
+            setItems2(items2);
+        }
+    }, []);
+    console.log(items);
+    console.log(items2);
+   
     return (
 
         <div className="box-container">
@@ -48,7 +64,7 @@ export default function PayComponent() {
                         <Card.Body className="inputtt">
                             <Form>
                                 <Form.Group className="mb-3">
-                                    <Form.Control placeholder="Tên người nhận" class="form-control-lg" ></Form.Control>
+                                    <Form.Control placeholder="Tên người nhận" class="form-control-lg"  ></Form.Control>
                                 </Form.Group>
                             </Form>
                             <Form>
@@ -81,19 +97,24 @@ export default function PayComponent() {
 
                 <Card variant='light' style={{ width: '18rem' }}>
                     <Card.Body>
-                        <Card.Title>Giỏ hàng</Card.Title>
+                        <Card.Title><span className="giohang">Giỏ hàng</span></Card.Title>
                     </Card.Body>
                     <Card.Body className="dongdau">
-                        <span className="Tamtinh"> Tạm tính (0 Món ) </span>
-                        <span className="gia1"> ₫0 </span>
+                        <span className="Tamtinh"> Tạm tính ({items2} Món ) </span>
+                        <span className="gia1"> ₫{items} </span>
                     </Card.Body>
                     <Card.Body className="donghai">
                         <span className="giamgia"> Giảm giá </span>
                         <span className="gia2"> ₫0 </span>
                     </Card.Body>
                     <Card.Body className="dongba">
-                        <span className="tongcong">Tổng cộng</span>
-                        <span className="gia3"> ₫0 </span>
+                        <div className="tongcong">
+                            <span >Tổng cộng</span>
+                            <span class="text-xs text-gray-500 mt-2 block">
+                            Đã bao gồm thuế (nếu có)
+                            </span>
+                        </div>
+                        <span className="gia3"> ₫{items} </span>
                     </Card.Body>
                     <Card.Body>
                         <Form>
