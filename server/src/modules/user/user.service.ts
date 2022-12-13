@@ -1,7 +1,7 @@
 import prisma from "../../utils/prisma";
 import { LoginUserInput, RegisterUserInput } from "./user.schema";
 import * as argon2 from 'argon2';
-export const registerService = async (input : RegisterUserInput) => {
+export const registerService = async (input : RegisterUserInput, path : string, filename : string) => {
     const { email, password, username, role } = input;
     // Check if user already exists
     const foundUser = await prisma.user.findUnique({
@@ -19,6 +19,8 @@ export const registerService = async (input : RegisterUserInput) => {
             username,
             password: hashedPassword,
             role,
+            avatarUrl : path,
+            avatarFileName : filename,
         },
         select : {
             id : true,
@@ -41,6 +43,7 @@ export const loginService = async (input : LoginUserInput) => {
             email : true,
             password : true,
             role : true,
+            avatarUrl : true,
         }
     });
     if(user && await argon2.verify(user.password, password)){

@@ -17,6 +17,8 @@ model User {
     password String
     role String
     cart Cart?
+    avatarUrl String
+    avatarFileName String
     trascations Transaction[]
 }
 model UploadFood {
@@ -29,6 +31,7 @@ model UploadFood {
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
     imageUrl String
+    imageFileName String
 }
 model CartItem {
     id String @id @default(auto()) @map("_id") @db.ObjectId

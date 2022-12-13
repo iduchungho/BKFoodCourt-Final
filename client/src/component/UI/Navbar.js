@@ -18,6 +18,7 @@ import './Navbar.css';
 import Logo from './Logo';
 import Cart from '../modules/Cart/Cart';
 import { CartState } from '../../context/CartContex';
+import { useNavigate } from 'react-router-dom';
 
 
 function UINavbar() {
@@ -25,7 +26,7 @@ function UINavbar() {
     const {cart} = CartState();
     const handleShowCart = () => setShowCart(true);
     const handleCloseCart = () => setShowCart(false);
-
+    const navigate = useNavigate();
     const cartInfo = () => {
         return (
             <>
@@ -34,8 +35,12 @@ function UINavbar() {
             </>
         )
     }
-
-
+    const handleRegister = () => {
+        navigate('/register');
+    }
+    const handleLogin = () => {
+        navigate('/login');
+    }
     return (
         <Navbar collapseOnSelect expand="xl" bg="light" variant="light" sticky='top' key='sm'>
             <Container className='nv-container'>
@@ -89,7 +94,8 @@ function UINavbar() {
                             <Cart />
                         </Offcanvas.Body>
                     </Offcanvas>
-                    <Button>Đăng nhập</Button>
+                    <Button variant="secondary" onClick={handleRegister}>Đăng ký</Button>
+                    <Button variant="primary" onClick={handleLogin}>Đăng nhập</Button>
                 </div>
             </Container>
         </Navbar>
