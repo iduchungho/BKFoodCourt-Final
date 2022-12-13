@@ -7,7 +7,7 @@ import Home from './component/modules/home/Home';
 import Cart from './component/modules/Cart/Cart';
 import Login from './component/modules/Login/Login';
 import Register from './component/modules/Register/Register';
-
+import PayComponent from './component/modules/payment/Pay';
 function App() {
   return (
     <>
@@ -19,6 +19,7 @@ function App() {
             <Route path='/cart' element={<Cart />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
+            <Route path='/Pay' element={<PayComponent />} />
           </Routes>
           <Footer />
         </Router>

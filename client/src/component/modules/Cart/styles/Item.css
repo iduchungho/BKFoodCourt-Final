@@ -205,3 +205,10 @@
 .i-a__price{
     margin-right: auto;
 }
+@media only screen and (max-width: 600px){
+    .food-container {
+        display: flex;
+        align-items: center;
+        padding: 0 10px 0 0;
+    }
+}

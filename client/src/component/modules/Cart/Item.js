@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/OffCanvas';
 import Form from 'react-bootstrap/Form';
 
-import './Item.css'
+import './styles/Item.css'
 import { CartState } from "../../../context/CartContex";
 
 export default function ItemInCart(obj) {
@@ -104,7 +104,7 @@ export function FoodItem(obj) {
                         {obj.name}
                     </p>
                     <div className="price_btn">
-                        <h6>{obj.price}</h6>
+                        <h6>{obj.price}</h6>    
                         <Button
                             className="add-btn"
                         >

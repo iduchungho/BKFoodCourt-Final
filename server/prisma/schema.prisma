@@ -16,49 +16,45 @@ model User {
     email String @unique
     password String
     role String
-    cart Cart?
     avatarUrl String
     avatarFileName String
     trascations Transaction[]
 }
+
 model UploadFood {
-    id String @id @default(auto()) @map("_id") @db.ObjectId
-    title String @unique
-    price String
-    category String
-    rating String
+    id          String   @id @default(auto()) @map("_id") @db.ObjectId
+    title       String   @unique
+    price       String
+    category    String
+    rating      String
     description String
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
     imageUrl String
     imageFileName String
 }
-model CartItem {
-    id String @id @default(auto()) @map("_id") @db.ObjectId
-    title String
-    price String
-    quantity String @default("1")
-    itemNote String?
-    cartId String
-    cart Cart @relation(fields: [cartId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+model TransactionItem {
+    id            String      @id @default(auto()) @map("_id") @db.ObjectId
+    title         String
+    price         String
+    quantity      String      @default("1")
+    itemNote      String?
+    transactionID String
+    transaction   Transaction @relation(fields: [transactionID], references: [id], onDelete: Cascade, onUpdate: Cascade)
 }
-model Cart {
-    id String @id @default(auto()) @map("_id") @db.ObjectId
-    userId String @unique
-    user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-    cartItems CartItem[]
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-}
+
 model Transaction {
-    id String @id @default(auto()) @map("_id") @db.ObjectId
-    userId String
-    user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-    status String
-    address String
-    phone String
-    note String
-    total String
+    id                String            @id @default(auto()) @map("_id") @db.ObjectId
+    userId            String
+    user              User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+    transactionItems  TransactionItem[]
+    createdAt         DateTime          @default(now())
+    updatedAt         DateTime          @updatedAt
+    typeOfTransaction String
+    status            String
+    address           String
+    phone             String
+    note              String
+    total             String
 }

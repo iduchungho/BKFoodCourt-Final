@@ -14,11 +14,12 @@ import { BsCart2, BsXLg } from "react-icons/bs";
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 
-import './Navbar.css';
+import './styles/Navbar.css';
 import Logo from './Logo';
 import Cart from '../modules/Cart/Cart';
 import { CartState } from '../../context/CartContex';
 import { useNavigate } from 'react-router-dom';
+import UserAvt from '../utils/user.utils';
 
 
 function UINavbar() {
@@ -27,6 +28,12 @@ function UINavbar() {
     const handleShowCart = () => setShowCart(true);
     const handleCloseCart = () => setShowCart(false);
     const navigate = useNavigate();
+
+    // const onLogin = () => {
+    //     return UserAvt();
+    //     // <Button>Đăng nhập</Button>
+    // }
+
     const cartInfo = () => {
         return (
             <>
@@ -96,6 +103,9 @@ function UINavbar() {
                     </Offcanvas>
                     <Button variant="secondary" onClick={handleRegister}>Đăng ký</Button>
                     <Button variant="primary" onClick={handleLogin}>Đăng nhập</Button>
+                    {/* {onLogin()} */}
+                    <UserAvt/>
+                    {/* <Button>Đăng nhập</Button> */}
                 </div>
             </Container>
         </Navbar>
