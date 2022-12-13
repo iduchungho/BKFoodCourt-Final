@@ -11,11 +11,13 @@ datasource db {
 }
 
 model User {
-    id          String        @id @default(auto()) @map("_id") @db.ObjectId
-    username    String        @unique
-    email       String        @unique
-    password    String
-    role        String
+    id String @id @default(auto()) @map("_id") @db.ObjectId
+    username String @unique
+    email String @unique
+    password String
+    role String
+    avatarUrl String
+    avatarFileName String
     trascations Transaction[]
 }
 
@@ -26,9 +28,10 @@ model UploadFood {
     category    String
     rating      String
     description String
-    createdAt   DateTime @default(now())
-    updatedAt   DateTime @updatedAt
-    imageUrl    String
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    imageUrl String
+    imageFileName String
 }
 
 model TransactionItem {

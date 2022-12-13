@@ -35,12 +35,12 @@ export default function PayComponent() {
                         </Card.Title>
                         <Card.Body >
                             <div className="Box__checkbox">
-                                <label class="container container1">
+                                <label class="pay-container container1">
                                     <span className="marginthing">Giao Hàng tận Nơi</span>
                                     <input type="radio" name="radio" />
                                     <span class="checkmark"></span>
                                 </label>
-                                <label class="container container2">
+                                <label class="pay-container container2">
                                     <span className="marginthing">Nhận tại cửa hàng</span>
                                     <input type="radio" name="radio" />
                                     <span class="checkmark"></span>

@@ -7,11 +7,12 @@ export const uploadFoodController = async (req: Request<{},{},UploadFoodInput>, 
     if(!req.file) {
         return next(new ExpressError('Image is required',StatusCodes.BAD_REQUEST))
     }
-    const newFood = await uploadFoodService(req.body, req.file.path);
+    const {path,filename} = req.file;
+    const newFood = await uploadFoodService(req.body,path,filename);
     if(!newFood) {
         return next(new ExpressError('Food already exists',StatusCodes.BAD_REQUEST))
     }
-    res.status(StatusCodes.CREATED).send(newFood);
+    res.status(StatusCodes.CREATED).send(newFood);  
 }
 
 export const getUploadedFoodController = async (req: Request, res: Response) => {
@@ -24,5 +25,5 @@ export const deleteUploadedFoodController = async (req: Request<deleteUploadedFo
     if(!deletedFood) {
         return res.status(StatusCodes.NOT_FOUND).send("Food not found");
     }
-    res.status(StatusCodes.OK).send(deletedFood);
+    res.status(StatusCodes.OK).send("Food deleted successfully");
 }

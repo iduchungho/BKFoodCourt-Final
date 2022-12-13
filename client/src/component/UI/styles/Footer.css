@@ -1,10 +1,10 @@
-.footer {
+/* .footer {
     background-color: #fff;
     width: 100%;
     height: 350px;
     bottom: 0;
     border-top: 10px solid rgb(90, 90, 213);
-    /* position: absolute; */
+ 
 
 }
 .footer-logo{
@@ -20,9 +20,7 @@
 .footer-line{
     border: 1px solid ghostwhite;
 }
-/* .footer-text_container{
-    display: grid;
-} */
+
 .footer-text-conpany{
     text-align: left;
     width: 100%;
@@ -38,5 +36,15 @@
 .footer-text-contact{
     text-align: left;
     width: 100%;
-    /* display: flex; */
+   
+} */
+
+.justmargin{
+    margin-left: 10px;
+}
+.kk{
+    margin-top: 12px;
+}
+.bi-clock{
+    margin-bottom: 3px
 }

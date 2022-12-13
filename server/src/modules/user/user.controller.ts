@@ -5,6 +5,9 @@ import { loginService, registerService } from "./user.service";
 import { signJwt } from '../../utils/jwt.utils';
 
 export const registerController = async (req: Request<{},{},RegisterUserInput>, res: Response) => {
+    if(!req.file) {
+        return res.status(StatusCodes.BAD_REQUEST).send("Image is required");
+    }
     if(req.body.role === 'admin'){
         return res.status(StatusCodes.FORBIDDEN).send("Forbidden");
     }
@@ -16,19 +19,23 @@ export const registerController = async (req: Request<{},{},RegisterUserInput>, 
             if(res.locals.user.role !== 'admin'){
                 return res.status(StatusCodes.FORBIDDEN).send("Forbidden");
             }
-            const employee = await registerService(req.body);
+            const {path,filename} = req.file;
+            const employee = await registerService(req.body,path,filename);
             if(!employee) {
                 return res.status(StatusCodes.BAD_REQUEST).send("Employee already exists");
             }
             res.status(StatusCodes.CREATED).send(employee);
         }
-        else {
-            req.body.role = 'customer';
-            const customer = await registerService(req.body);
+        else if(req.body.role === 'customer'){
+            const {path,filename} = req.file;
+            const customer = await registerService(req.body,path,filename);
             if(!customer) {
                 return res.status(StatusCodes.BAD_REQUEST).send("Customer already exists");
             }
             res.status(StatusCodes.CREATED).send(customer);
+        }
+        else {
+            return res.status(StatusCodes.BAD_REQUEST).send("Invalid role");
         }
     }
 }
