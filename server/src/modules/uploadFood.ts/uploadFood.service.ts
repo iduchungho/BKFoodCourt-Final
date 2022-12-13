@@ -1,7 +1,7 @@
 import prisma from '../../utils/prisma';
 import { UploadFoodInput } from './uploadFood.schema';
 import { cloudinaryUtils } from '../../cloudinary/cloudinary';
-export const uploadFoodService = async (food : UploadFoodInput, image : string) => {
+export const uploadFoodService = async (food : UploadFoodInput, image : string, filename : string) => {
     const newFood = await prisma.uploadFood.create({
         data : {
             title : food.title,
@@ -10,6 +10,7 @@ export const uploadFoodService = async (food : UploadFoodInput, image : string) 
             category : food.category,
             rating : food.rating,
             imageUrl : image,
+            imageFileName : filename
         }
     })
     return newFood;
@@ -29,7 +30,7 @@ export const deleteUploadedFoodService = async (uploadFoodId : string) => {
     if(!food) {
         return false;
     }
-    await cloudinaryUtils.uploader.destroy(food.imageUrl);
+    await cloudinaryUtils.uploader.destroy(food.imageFileName);
     await prisma.uploadFood.delete({
         where : {
             id : uploadFoodId

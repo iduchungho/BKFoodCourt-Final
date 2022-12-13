@@ -11,7 +11,7 @@ export const uploadFoodSchema = z.object({
         required_error : 'Category is required'
     }),
     rating : z.string({
-        required_error : 'Average Rating is required'
+        required_error : 'Average rating is required'
     }),
     description : z.string({
         required_error : 'Description is required'
