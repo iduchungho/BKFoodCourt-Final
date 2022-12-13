@@ -42,17 +42,17 @@ function UINavbar() {
             </>
         )
     }
-    const handleRegister = () => {
-        navigate('/register');
-    }
-    // const handleLogin = () => {
-    //     navigate('/login');
+    // const handleRegister = () => {
+    //     navigate('/register');
     // }
+    const handleLogin = () => {
+        navigate('/login');
+    }
     return (
         <Navbar collapseOnSelect expand="xl" bg="light" variant="light" sticky='top' key='sm'>
             <Container className='nv-container'>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                <Navbar.Brand href="#home"><Logo /></Navbar.Brand>
+                <Navbar.Brand href="/#home"><Logo /></Navbar.Brand>
                 <Navbar.Offcanvas
                     id={`offcanvasNavbar-expand-xl`}
                     aria-labelledby={`offcanvasNavbarLabel-expand-xl`}
@@ -101,8 +101,8 @@ function UINavbar() {
                             <Cart />
                         </Offcanvas.Body>
                     </Offcanvas>
-                    <Button variant="secondary" onClick={handleRegister}>Đăng ký</Button>
-                    {/* <Button variant="primary" onClick={handleLogin}>Đăng nhập</Button> */}
+                    {/* <Button variant="secondary" onClick={handleRegister}>Đăng ký</Button> */}
+                    <Button variant="primary" onClick={handleLogin}>Đăng nhập</Button>
                     {/* {onLogin()} */}
                     {/* <UserAvt/> */}
                     {/* <Button>Đăng nhập</Button> */}

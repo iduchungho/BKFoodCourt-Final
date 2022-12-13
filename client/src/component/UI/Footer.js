@@ -23,20 +23,21 @@ export default function Footer() {
         //         </div>
         //     </div>
         // </div>
-        <footer class="bg-primary text-white text-center text-lg-start">
+        <footer class="bg-light text-dark text-center text-lg-start f___custom">
 
             <div class="container1 p-4">
 
                 <div class="row">
 
                     <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-                        <h5 class="text-uppercase">BK Food</h5>
+                        {/* <h5 class="text-uppercase"><Logo/></h5> */}
+                        <div className="f__logo"><Logo /></div>
 
-                        <p>
-                            Tại BK, chúng tôi hiểu rằng một bữa ăn ngon có thể mang lại cho bạn sức khoẻ và tinh thần thoải mái nhất.
+                        {/* <p>
+                            Tại Bách khoa, chúng tôi hiểu rằng một bữa ăn ngon có thể mang lại cho bạn sức khoẻ và tinh thần thoải mái nhất.
                             Vì vậy, BK cho ra mắt dịch vụ BKFood, nhằm kết nối các nhà hàng,
                             quán ăn tại địa phương với tất cả mọi người.
-                        </p>
+                        </p> */}
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
                             <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
                         </svg>
@@ -59,8 +60,8 @@ export default function Footer() {
 
             </div>
 
-            <div class="text-center p-3" >
-                © 2020 Copyright:
+            <div class="text-center p-3 .bg-light.bg-gradient" >
+                © 2022 Copyright: BKFoodCourtProject
 
             </div>
 

@@ -4,6 +4,7 @@ import { Button, Container, Form, Row } from "react-bootstrap"
 import { getMe, login } from "../../../utils/user.utils";
 import Logo from "../../UI/Logo";
 import './Login.css'
+import { Link } from "react-router-dom";
 function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -36,9 +37,12 @@ function Login() {
                                     <Form.Label>Password</Form.Label>
                                     <Form.Control type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
                                 </Form.Group>
-                                <Button variant="primary" type="submit">
-                                    Login
+                                <Button variant="primary" type="submit" className="btn__login">
+                                    Đăng nhập
                                 </Button>
+                                <button className="btn___item">
+                                    <Link to='/register' className="btn__txt">Tạo tài khoản mới</Link>
+                                </button>
                             </Form>
                         </Row>
                     </Container>

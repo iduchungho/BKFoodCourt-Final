@@ -14,3 +14,7 @@
 .wall__login{
     height: 100vh;
 }
+.btn__login{
+    width: 100%;
+    margin-top: 20px;
+}
