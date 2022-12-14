@@ -12,11 +12,10 @@ export default function UserAvt({ user }) {
     const handleShow = () => {
         return setShowUser(!showUser);
     }
-
     const menu = () => {
         if (user.role === 'admin') {
             return (
-                <Dropdown.Item onClick= {
+                <Dropdown.Item onClick={
                     () => {
                         navigate('/dashboard');
                         handleShow();
@@ -54,15 +53,14 @@ export default function UserAvt({ user }) {
                     <Dropdown.Menu>
                         {menu()}
                         <Dropdown.Divider />
-                        <Dropdown.Item href="/">
+                        <Dropdown.Item onClick={async () => {
+                            await logout();
+                            navigate('/');
+                            window.location.reload();
+                        }}>
                             <div className="dropdown__item">
                                 <span
-                                    className="dropdown__txt"
-                                    onClick={async () => {
-                                        await logout();
-                                        navigate('/');
-                                    }}
-                                >
+                                    className="dropdown__txt">
                                     Đăng xuất
                                 </span>
                                 <div className="dropdown__icon"><CiLogout /></div>

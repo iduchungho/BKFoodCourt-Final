@@ -17,9 +17,11 @@ function Login() {
             const me = await getMe();
             if(me.role === "admin") {
                 navigate("/dashboard");
+                window.location.reload();
             }
             else {
                 navigate("/");
+                window.location.reload();
             }
         }
         else {
