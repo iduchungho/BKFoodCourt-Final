@@ -30,12 +30,19 @@ function FoodForm() {
         data.append('description',description);
 
         const res = await uploadFood(data);
-        console.log(res);
+        //alert
+        if(res)
+        {
+            alert("Upload success")
+        }
+        else {
+            alert("Upload failed")
+        }
     }
 
     return (
         <>  
-            <Container style={{minWidth:300, maxWidth:500}}>
+            <Container>
                 <section className={clsx("d-flex flex-column align-items-center p-3",styles.uploadFood_box)}>
                 <Form className="w-100" onSubmit={(e)=>{e.preventDefault(); handleSubmit(e)}}>
 

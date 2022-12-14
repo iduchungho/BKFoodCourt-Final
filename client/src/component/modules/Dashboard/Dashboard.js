@@ -5,19 +5,9 @@ import SidebarItem from "./SidebarItem";
 import './style.css'
 function Dashboard() {
     const navigate = useNavigate();
-    const [currentPath, setCurrentPath] = useState(() => {
-        const path = window.location.pathname;
-        const pathArr = path.split('/');
-        return pathArr[2];
-    });
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
-    useEffect(()=>{
-        const path = window.location.pathname;
-        const pathArr = path.split('/');
-        setCurrentPath(pathArr[2]);
-    },[window.location.pathname])
 
     return (
         <Container fluid>
@@ -27,9 +17,13 @@ function Dashboard() {
                         <div className="col_3_header">
                             <h4>Dashboard</h4>
                         </div>
+                        <SidebarItem 
+                            title = "Upload Food"
+                            onClick={() => navigate('/dashboard/upload')}
+                        />
                         <SidebarItem
-                        title = "Upload"
-                        onClick={() => navigate('/dashboard/upload')}
+                            title = "Manage Food"
+                            onClick={() => navigate('/dashboard/manage')}
                         />
                     </div>
                 </Col>

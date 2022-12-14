@@ -15,6 +15,33 @@ export const uploadFood = async (input) => {
         return data;
     }
     catch (error) {
-        return {error: error.message};
+        return false;
+    }
+}
+
+export const getAllFoods = async () => {
+    // {{host}}/api/uploadFoods
+    try {
+        const {data} = await axios.get(`${serverUrl}/api/uploadFoods`)
+        return data;
+    }
+    catch (error) {
+        return null;
+    }
+}
+
+export const deleteFood = async (id) => {
+    //{{host}}/api/uploadFoods/{{uploadFoodId}}
+    try {
+        const {data} = await axios.delete(`${serverUrl}/api/uploadFoods/${id}`, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem("accessToken")}`,
+                'x-refresh' : localStorage.getItem("refreshToken")
+            }
+        });
+        return data;
+    }
+    catch (error) {
+        return false;
     }
 }
