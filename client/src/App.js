@@ -5,10 +5,13 @@ import UINavbar from './component/UI/Navbar';
 import Footer from './component/UI/Footer';
 import Home from './component/modules/home/Home';
 import Cart from './component/modules/Cart/Cart';
-import Login from './component/modules/login/Login';
+import Login from './component/modules/Login/Login';
 import Register from './component/modules/Register/Register';
 import PayComponent from './component/modules/Payment/Pay';
 import Sucess from './component/modules/Sucess/Sucess';
+import Dashboard from './component/modules/Dashboard/Dashboard';
+import Upload from './component/modules/Upload/Upload';
+import Manage from './component/modules/Manage/Manage';
 function App() {
   return (
     <>
@@ -20,6 +23,10 @@ function App() {
             <Route path='/cart' element={<Cart />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
+            <Route path = 'dashboard' element = {<Dashboard/>}>
+                <Route path = 'upload' element = {<Upload/>}/>
+                <Route path = 'manage' element = {<Manage/>}/>
+            </Route>
             <Route path='/pay' element={<PayComponent />} />
             <Route path='/Sucess' element={<Sucess />} />
           </Routes>
