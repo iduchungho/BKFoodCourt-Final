@@ -3,23 +3,27 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import './styles/user.utils.css';
 import { CiReceipt, CiLogout } from 'react-icons/ci'
 import { getMe, logout } from "../../utils/user.utils";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { FiUpload } from "react-icons/fi";
 
-export default function UserAvt({ src }) {
+export default function UserAvt({ user }) {
+    const navigate = useNavigate();
     const [showUser, setShowUser] = useState(false);
-    const [user, setUser] = useState({});
     const handleShow = () => {
         return setShowUser(!showUser);
     }
 
     const menu = () => {
-        getMe().then(data => setUser(data))
         if (user.role === 'admin') {
             return (
-                <Dropdown.Item href="/upload">
+                <Dropdown.Item onClick= {
+                    () => {
+                        navigate('/dashboard');
+                        handleShow();
+                    }
+                }>
                     <div className="dropdown__item">
-                        <span className="dropdown__txt">Thêm món</span>
+                        <span className="dropdown__txt">Dashboard</span>
                         <div className="dropdown__icon"><FiUpload /></div>
                     </div>
                 </Dropdown.Item>
@@ -54,9 +58,9 @@ export default function UserAvt({ src }) {
                             <div className="dropdown__item">
                                 <span
                                     className="dropdown__txt"
-                                    onClick={() => {
-                                        logout();
-                                        Navigate('/');
+                                    onClick={async () => {
+                                        await logout();
+                                        navigate('/');
                                     }}
                                 >
                                     Đăng xuất

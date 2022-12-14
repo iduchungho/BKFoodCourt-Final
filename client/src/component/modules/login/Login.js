@@ -4,8 +4,9 @@ import { Button, Container, Form, Row } from "react-bootstrap"
 import { getMe, login } from "../../../utils/user.utils";
 import Logo from "../../UI/Logo";
 import './Login.css'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 function Login() {
+    const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const handleLogin = async (e) => {
@@ -13,8 +14,13 @@ function Login() {
         e.stopPropagation();
         const res = await login({email, password});
         if(res) {
-            const user =  await getMe();
-            console.log(user);
+            const me = await getMe();
+            if(me.role === "admin") {
+                navigate("/dashboard");
+            }
+            else {
+                navigate("/");
+            }
         }
         else {
             alert("Login failed");

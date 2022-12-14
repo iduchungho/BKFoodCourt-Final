@@ -31,10 +31,10 @@ function UINavbar() {
     const navigate = useNavigate();
     const [user, setUser] = useState("");
     useEffect(() => {
+        console.log("hello");
         getMe().then(data => setUser(data))
     },[])
 
-    console.log(user);
 
     const cartInfo = () => {
         return (
@@ -106,7 +106,7 @@ function UINavbar() {
                     {/* <Button variant="secondary" onClick={handleRegister}>Đăng ký</Button> */}
                     {/* <Button variant="primary" onClick={handleLogin}>Đăng nhập</Button> */}
                     {
-                        user ? <UserAvt /> : <Button variant="primary" onClick={handleLogin}>Đăng nhập</Button>
+                        user ? <UserAvt user={user} /> : <Button variant="primary" onClick={handleLogin}>Đăng nhập</Button>
                     }
                     {/* {onLogin()} */}
                     {/* <UserAvt/> */}
