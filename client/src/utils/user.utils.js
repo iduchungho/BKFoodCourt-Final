@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const serverUrl = "http://localhost:3001";
+export const serverUrl = "http://localhost:3001";
 export const registerCustomer = async (input) => {
     //{{host}}/api/users/register   
     try {
