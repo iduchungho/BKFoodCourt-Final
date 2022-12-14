@@ -5,9 +5,9 @@ import { processRequestBody } from 'zod-express-middleware';
 import { requireUser } from '../../middlewares/requireUser';
 import catchAsync from '../../utils/catchAsync';
 import { TransactionInfo, TransactionItemInfo } from './Transaction.schema';
+import { createTransactionController, getAllTransactionsController } from './Transaction.controller';
 const transactionRouter = express.Router();
 
-transactionRouter.get('/', (req, res) => {
-    res.send("hello world!");
-})
+transactionRouter.post('/create', catchAsync(createTransactionController))
+transactionRouter.get('/getall', catchAsync(getAllTransactionsController)) 
 export default transactionRouter;  

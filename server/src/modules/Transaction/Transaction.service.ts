@@ -42,3 +42,8 @@ export const CreateTransaction = async (input : TransactionInfo) => {
 
     return transaction;
 }
+
+export const getAllTransactions =async () => {
+    const allTrans = await prisma.transaction.findMany();
+    return allTrans;
+}
