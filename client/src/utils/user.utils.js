@@ -39,7 +39,7 @@ export const getMe = async () => {
         return data;
     }
     catch (error) {
-        return {error: error.message};
+        return null;
     }
 }
 
