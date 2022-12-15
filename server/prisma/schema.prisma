@@ -32,12 +32,13 @@ model UploadFood {
     updatedAt DateTime @updatedAt
     imageUrl String
     imageFileName String
+    transactionItems TransactionItem[]
 }
 
 model TransactionItem {
     id            String      @id @default(auto()) @map("_id") @db.ObjectId
-    title         String
-    price         String
+    foodId        String
+    food          UploadFood  @relation(fields: [foodId], references: [id], onDelete: Cascade, onUpdate: Cascade)
     quantity      String      @default("1")
     itemNote      String?
     transactionID String
