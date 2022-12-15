@@ -72,7 +72,7 @@ export function TotalConfirm() {
                 <div>Tổng cộng</div>
                 <div className="cart-total-price">{cart.cartTotalQuantity} đ</div>
             </div>
-            <Button className="btn-payment">Thanh toán</Button>
+            <Button className="btn-payment" href="/pay">Thanh toán</Button>
         </div>
     );
 }
