@@ -173,7 +173,7 @@
     margin-top: 30px;
   }
   
-  /* Hide the browser's default radio button */
+
   .pay-container input {
     position: absolute;
     opacity: 0;
