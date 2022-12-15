@@ -68,6 +68,15 @@
     overflow: auto;
     color: #9a9a9a;;
 }
+.item-description::-webkit-scrollbar{
+    width: 3px;
+}
+.item-description::-webkit-scrollbar-track{
+    background-color: #f7f7f7;
+}
+.item-description::-webkit-scrollbar-thumb{
+    background-color: #0d6efd;
+}
 .price_btn{
     display: flex;
     align-items: center;
