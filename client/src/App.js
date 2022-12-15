@@ -5,14 +5,10 @@ import UINavbar from './component/UI/Navbar';
 import Footer from './component/UI/Footer';
 import Home from './component/modules/home/Home';
 import Cart from './component/modules/Cart/Cart';
-import Login from './component/modules/login/Login';
+import Login from './component/modules/Login/Login';
 import Register from './component/modules/Register/Register';
-<<<<<<< HEAD
 import PayComponent from './component/modules/Payment/Pay';
 import Sucess from './component/modules/Sucess/Sucess';
-=======
-import PayComponent from './component/modules/payment/Pay';
->>>>>>> 897db243dcf0ac3a15c6bb3ed545e3982e82dfb9
 function App() {
   return (
     <>
