@@ -34,3 +34,19 @@ export const updateTransactionStatus = async (id, status) => {
         return false;
     }
 }
+
+export const getMyTransactions = async () => {
+    try {
+        // {{host}}/api/transactions/getMyTransactions
+        const {data} = await axios.get(`${serverUrl}/api/transactions/getMyTransactions`, {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem("accessToken")}`,
+                'x-refresh' : localStorage.getItem("refreshToken")
+            }
+        });
+        return data;
+    }
+    catch(error) {
+        return null;
+    }
+}

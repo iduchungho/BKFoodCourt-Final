@@ -3,7 +3,7 @@ import { Button, Modal } from "react-bootstrap";
 import { updateTransactionStatus } from "../../../utils/transaction.utils";
 import FoodItem from "../Manage/FoodItem";
 
-function TransactionCell({ transaction, index }) {
+function TransactionCell({ transaction, index ,type }) {
     const [show, setShow] = useState({
         show: false,
         transaction: null,
@@ -31,14 +31,18 @@ function TransactionCell({ transaction, index }) {
         <>
             <tr onClick={()=> {handleShow(transaction)}}>
                 <td>{index}</td>
-                <td>
-                    <div>
-                        {transaction.user.username}
-                    </div>
-                    <div className="text-muted">
-                        {transaction.phone}
-                    </div>
-                </td>
+                {
+                    type !== "personal" ? 
+                        <td>
+                        <div>
+                            {transaction.user.username}
+                        </div>
+                        <div className="text-muted">
+                            {transaction.phone}
+                        </div>
+                    </td>
+                : null
+                }
                 <td>{transaction.id}</td>
                 <td>{transaction.status}</td>
                 <td>{transaction.total}</td>
@@ -79,7 +83,7 @@ function TransactionCell({ transaction, index }) {
                         Close
                     </Button>
                     {
-                        transaction.status === "Delivered" ? <></> :
+                        (transaction.status === "Delivered" || type === "personal" ) ? <></> :
                         <Button variant="warning" onClick={() => {handleToDelivered(transaction.id)}}>
                             Update status to "Delivered"
                         </Button>
