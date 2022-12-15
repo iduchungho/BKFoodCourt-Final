@@ -1,9 +1,8 @@
 import { TransactionInfo } from './Transaction.schema';
 import prisma from "../../utils/prisma";
 
-export const CreateTransaction = async (input : TransactionInfo) => {
+export const createTransaction = async (input : TransactionInfo, userId : string) => {
     const {
-        userId, 
         transactionItem, 
         status, 
         typeOfTransaction, 
@@ -29,12 +28,11 @@ export const CreateTransaction = async (input : TransactionInfo) => {
     })
 
     for (let i = 0 ; i < transactionItem.length; i++){
-        const items = await prisma.transactionItem.create({
+        await prisma.transactionItem.create({
             data: {
-                title: transactionItem[i].title,
-                price: transactionItem[i].price,
+                foodId: transactionItem[i].foodId,
                 quantity: transactionItem[i].quantity,
-                itemNode: transactionItem[i].itemNote,
+                itemNote: transactionItem[i].itemNote,
                 transactionID : transaction.id
             }
         })
@@ -43,7 +41,132 @@ export const CreateTransaction = async (input : TransactionInfo) => {
     return transaction;
 }
 
-export const getAllTransactions =async () => {
-    const allTrans = await prisma.transaction.findMany();
-    return allTrans;
+export const getAllTransactions = async () => {
+    const transactions = await prisma.transaction.findMany({
+        select : {
+            id : true,
+            user : {
+                select : {
+                    id : true,
+                    username : true
+                }
+            },
+            status : true,
+            phone : true,
+            address : true,
+            note : true,
+            total : true,
+            typeOfTransaction : true,
+            transactionItems : {
+                select : {
+                    foodId : true,
+                    quantity : true,
+                    itemNote : true,
+                    food : {
+                        select : {
+                            title : true,
+                            price : true,
+                        }
+
+                    }
+                }
+            }
+        }
+    });
+    return transactions;
+}
+export const getTotalPriceToday = async () => {
+    const todayTransactions = await prisma.transaction.findMany({
+        where : {
+            createdAt : {
+                gte : new Date(new Date().setHours(0,0,0,0))
+            }
+        },
+        select : {
+            total : true
+        }
+    });
+    let totalPrice = 0;
+    // for (let i = 0; i < todayTransactions.length; i++){
+    //     totalPrice += parseInt(todayTransactions[i].total);
+    // }
+    return totalPrice;
+}
+export const getTransactionByUserId = async (userId : string) => {
+    const foundTransactions = await prisma.transaction.findMany({
+        where : {
+            userId : userId
+        },
+        select : {
+            id : true,
+            user : {
+                select : {
+                    id : true,
+                    username : true
+                }
+            },
+            status : true,
+            phone : true,
+            address : true,
+            note : true,
+            total : true,
+            typeOfTransaction : true,
+            transactionItems : {
+                select : {
+                    foodId : true,
+                    quantity : true,
+                    itemNote : true,
+                    food : {
+                        select : {
+                            title : true,
+                            price : true,
+                        }
+
+                    }
+                }
+            }
+        }
+    });
+    return foundTransactions;
+}
+
+export const updateTransactionStatus = async (transactionId : string, status : string) => {
+    const updatedTransaction = await prisma.transaction.update({
+        where : {
+            id : transactionId
+        },
+        data : {
+            status : status
+        },
+        select : {
+            id : true,
+            user : {
+                select : {
+                    id : true,
+                    username : true
+                }
+            },
+            status : true,
+            phone : true,
+            address : true,
+            note : true,
+            total : true,
+            typeOfTransaction : true,
+            transactionItems : {
+                select : {
+                    foodId : true,
+                    quantity : true,
+                    itemNote : true,
+                    food : {
+                        select : {
+                            title : true,
+                            price : true,
+                        }
+
+                    }
+                }
+            }
+        }
+    });
+    return updatedTransaction;
 }

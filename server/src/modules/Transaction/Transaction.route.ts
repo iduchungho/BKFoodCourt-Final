@@ -1,13 +1,15 @@
 import express from 'express';
-import multer from 'multer'
-import { storage } from '../../cloudinary/cloudinary';
 import { processRequestBody } from 'zod-express-middleware';
-import { requireUser } from '../../middlewares/requireUser';
+import { requireAdmin, requireUser } from '../../middlewares/requireUser';
 import catchAsync from '../../utils/catchAsync';
-import { TransactionInfo, TransactionItemInfo } from './Transaction.schema';
-import { createTransactionController, getAllTransactionsController } from './Transaction.controller';
+import { TransactionSchema } from './Transaction.schema';
+import { createTransactionController, getAllTransactionsController, getMyTransactionsController, getTransactionsByUserIdController, updateTransactionStatusController } from './Transaction.controller';
 const transactionRouter = express.Router();
 
-transactionRouter.post('/create', catchAsync(createTransactionController))
-transactionRouter.get('/getall', catchAsync(getAllTransactionsController)) 
-export default transactionRouter;  
+transactionRouter.post('/create',requireUser,processRequestBody(TransactionSchema), catchAsync(createTransactionController))
+transactionRouter.get('/getAll', requireAdmin,catchAsync(getAllTransactionsController)) 
+transactionRouter.get('/getMyTransactions', requireUser, catchAsync(getMyTransactionsController))
+transactionRouter.get('/getByUserId/:userId', requireAdmin, catchAsync(getTransactionsByUserIdController))
+transactionRouter.post('/updateStatus/:transactionId', requireAdmin, catchAsync(updateTransactionStatusController))
+
+export default transactionRouter;

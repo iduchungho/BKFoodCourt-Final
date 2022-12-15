@@ -1,11 +1,8 @@
 import {z} from 'zod'
 
-const TransactionItem = z.object({
-    title : z.string({
-        required_error: 'Title is required'
-    }),
-    price : z.string({
-        required_error: 'Price is required'
+export const TransactionItemSchema = z.object({
+    foodId : z.string({
+        required_error: 'FoodId is required'
     }),
     quantity : z.string({
         required_error: 'Quantity is required'
@@ -15,11 +12,8 @@ const TransactionItem = z.object({
     })
 })
 
-const Transaction = z.object({
-    userId: z.string({
-        required_error: 'CartUser is required'
-    }),
-    transactionItem : z.array(TransactionItem),
+export const TransactionSchema = z.object({
+    transactionItem : z.array(TransactionItemSchema),
     typeOfTransaction : z.string({
         required_error: 'TransactionType is required'
     }),
@@ -41,5 +35,5 @@ const Transaction = z.object({
 })
 
 
-export type TransactionInfo = z.infer<typeof Transaction>;
-export type TransactionItemInfo = z.infer<typeof TransactionItem>;
+export type TransactionInfo = z.infer<typeof TransactionSchema>;
+export type TransactionItemInfo = z.infer<typeof TransactionItemSchema>;
