@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Dropdown from 'react-bootstrap/Dropdown';
 import './styles/user.utils.css';
 import { CiReceipt, CiLogout } from 'react-icons/ci'
-import { getMe, logout } from "../../utils/user.utils";
+import {  logout } from "../../utils/user.utils";
 import { useNavigate } from "react-router-dom";
 import { FiUpload } from "react-icons/fi";
 

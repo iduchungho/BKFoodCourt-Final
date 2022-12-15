@@ -50,7 +50,10 @@ function Register() {
                         />
                         {avatar.img &&
                             <div className="d-flex w-100 mb-3 mt-3" style={{ height: 100 }}>
-                                <img src={avatar.img} />
+                                <img 
+                                    src={avatar.img} 
+                                    alt ='avt'
+                                />
                             </div>
                         }
                         <div className="btn____section">

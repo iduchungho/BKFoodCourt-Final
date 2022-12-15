@@ -58,3 +58,13 @@ export const logout = async () => {
         return {error: error.message};
     }
 }
+
+export const getAllFoods = async () => {
+    try{
+        const data = await axios.get(`${serverUrl}/api/uploadFoods`)
+        return data;
+    }
+    catch (error) {
+        return null;
+    }
+}

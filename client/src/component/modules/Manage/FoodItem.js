@@ -2,10 +2,11 @@ import { memo, useState } from 'react';
 
 import './styles.css';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Button, Modal } from 'react-bootstrap';
 import { deleteFood } from '../../../utils/uploadFood.utils';
+import { BsTrash } from 'react-icons/bs';
 
 function FoodItem({food}) {
     const [show, setShow] = useState({
@@ -38,7 +39,8 @@ function FoodItem({food}) {
                     <h3>{food.title}</h3>
                     <span>{food.price} VND</span>
                 </div>
-                <FontAwesomeIcon className= "icon icon_trash ms-3" onClick={() => handleShow(food)} icon={faTrash} />
+                {/* <FontAwesomeIcon className= "icon icon_trash ms-3" onClick={() => handleShow(food)} icon={BsTrash} /> */}
+                <div onClick={() => handleShow(food)}><BsTrash/></div>
             </div>
             <Modal show={show.show} onHide={handleClose}>
                 <Modal.Header closeButton>

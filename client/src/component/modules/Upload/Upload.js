@@ -1,6 +1,6 @@
 import {memo, useState} from "react"
 import clsx from "clsx"
-import axios from "axios"
+// import axios from "axios"
 // css and bootstrap
 import styles from "./uploadFood.css"
 import {Button, Form, Container, InputGroup} from "react-bootstrap"
@@ -77,7 +77,7 @@ function FoodForm() {
                     </Form.Group>
                     {image.img &&
                             <div className="d-flex w-100 mb-3 mt-3" style={{ height: 100 }}>
-                                <img src={image.img} />
+                                <img src={image.img} alt='img'/>
                             </div>
                     }
                     <fieldset className="starability-basic mb-3" onChange={(e)=>{setAverageRating(e.target.value)}}>

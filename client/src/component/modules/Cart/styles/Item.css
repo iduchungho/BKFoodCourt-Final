@@ -49,6 +49,7 @@
 }
 .item-txt{
     width: 100%;
+    padding: 10px;
 }
 .item-container:hover{
     border: 1.7px solid #0d6efd;
@@ -58,10 +59,14 @@
     margin: 0.5em;
 }
 .item-description{
-    margin-top: 10px;
+    /* margin-top: 10px; */
     height: 60px;
-    display: flex;
+    /* display: flex; */
     align-items: center;
+    font-size: 14px;
+    margin-bottom: 10px;
+    overflow: auto;
+    color: #9a9a9a;;
 }
 .price_btn{
     display: flex;
@@ -148,6 +153,7 @@
 .food-name {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-left: 10px;
+    font-weight: bold;
 }
 
 .food-price {
@@ -204,6 +210,14 @@
 }
 .i-a__price{
     margin-right: auto;
+}
+.item-title{
+    font-weight: bold;
+    margin-top: 10px;
+}
+.f-description{
+    color: #9a9a9a;
+    margin-left: 10px;
 }
 @media only screen and (max-width: 600px){
     .food-container {

@@ -12,27 +12,33 @@ import Sucess from './component/modules/Sucess/Sucess';
 import Dashboard from './component/modules/Dashboard/Dashboard';
 import Upload from './component/modules/Upload/Upload';
 import Manage from './component/modules/Manage/Manage';
+import FoodProvider from './context/FoodContext';
+import Receipt from './component/modules/Cart/Reciept';
+
 function App() {
   return (
     <>
-      <CartProvider>
-        <Router>
-          <UINavbar />
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/cart' element={<Cart />} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/register' element={<Register />} />
-            <Route path = 'dashboard' element = {<Dashboard/>}>
-                <Route path = 'upload' element = {<Upload/>}/>
-                <Route path = 'manage' element = {<Manage/>}/>
-            </Route>
-            <Route path='/pay' element={<PayComponent />} />
-            <Route path='/Sucess' element={<Sucess />} />
-          </Routes>
-          <Footer />
-        </Router>
-      </CartProvider>
+      <FoodProvider>
+        <CartProvider>
+          <Router>
+            <UINavbar />
+            <Routes>
+              <Route path='/' element={<Home />} />
+              <Route path='/cart' element={<Cart />} />
+              <Route path='/login' element={<Login />} />
+              <Route path='/register' element={<Register />} />
+              <Route path='dashboard' element={<Dashboard />}>
+                <Route path='upload' element={<Upload />} />
+                <Route path='manage' element={<Manage />} />
+              </Route>
+              <Route path='/pay' element={<PayComponent />} />
+              <Route path='/Sucess' element={<Sucess />} />
+              <Route path='bill' element={<Receipt />} />
+            </Routes>
+            <Footer />
+          </Router>
+        </CartProvider>
+      </FoodProvider>
     </>
   );
 }
