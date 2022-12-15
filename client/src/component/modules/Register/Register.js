@@ -1,10 +1,11 @@
 import { memo, useState } from "react"
 import { Button, Container, Form } from "react-bootstrap"
-import { Link } from "react-router-dom";
-import { registerCustomer } from "../../../utils/user.utils";
+import { Link, useNavigate } from "react-router-dom";
+import { registerUser } from "../../../utils/user.utils";
 import './Register.css'
 
 function Register() {
+    const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [username, setUsername] = useState("");
@@ -21,8 +22,13 @@ function Register() {
         data.append("username", username);
         data.append("avatar", avatar.files[0]);
         data.append("role", "customer");
-        const res = await registerCustomer(data);
-        console.log(res);
+        const res = await registerUser(data);
+        if (res) {
+            navigate("/login");
+        }
+        else {
+            alert("Register failed");
+        }
     };
     return (
         <div className="wall">

@@ -1,4 +1,4 @@
-import { TransactionInfo } from './Transaction.schema';
+import { TransactionInfo } from './transaction.schema';
 import prisma from "../../utils/prisma";
 
 export const createTransaction = async (input : TransactionInfo, userId : string) => {
@@ -66,6 +66,7 @@ export const getAllTransactions = async () => {
                         select : {
                             title : true,
                             price : true,
+                            imageUrl : true
                         }
 
                     }
@@ -120,6 +121,7 @@ export const getTransactionByUserId = async (userId : string) => {
                         select : {
                             title : true,
                             price : true,
+                            imageUrl : true
                         }
 
                     }
@@ -161,6 +163,7 @@ export const updateTransactionStatus = async (transactionId : string, status : s
                         select : {
                             title : true,
                             price : true,
+                            imageUrl : true
                         }
 
                     }

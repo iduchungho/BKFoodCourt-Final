@@ -14,33 +14,37 @@ import Upload from './component/modules/Upload/Upload';
 import Manage from './component/modules/Manage/Manage';
 import FoodProvider from './context/FoodContext';
 import Receipt from './component/modules/Cart/Reciept';
+import Transactions from './component/modules/Transactions/Transactions';
+import RegisterAdmin from './component/modules/RegisterAdmin/RegisterAdmin';
 
 function App() {
-  return (
-    <>
-      <FoodProvider>
-        <CartProvider>
-          <Router>
-            <UINavbar />
-            <Routes>
-              <Route path='/' element={<Home />} />
-              <Route path='/cart' element={<Cart />} />
-              <Route path='/login' element={<Login />} />
-              <Route path='/register' element={<Register />} />
-              <Route path='dashboard' element={<Dashboard />}>
-                <Route path='upload' element={<Upload />} />
-                <Route path='manage' element={<Manage />} />
-              </Route>
-              <Route path='/pay' element={<PayComponent />} />
-              <Route path='/Sucess' element={<Sucess />} />
-              <Route path='bill' element={<Receipt />} />
-            </Routes>
-            <Footer />
-          </Router>
-        </CartProvider>
-      </FoodProvider>
-    </>
-  );
+    return (
+        <>
+            <FoodProvider>
+                <CartProvider>
+                    <Router>
+                        <UINavbar />
+                        <Routes>
+                            <Route path='/' element={<Home />} />
+                            <Route path='/cart' element={<Cart />} />
+                            <Route path='/login' element={<Login />} />
+                            <Route path='/register' element={<Register />} />
+                            <Route path='dashboard' element={<Dashboard />}>
+                                <Route path='upload' element={<Upload />} />
+                                <Route path='manage' element={<Manage />} />
+                                <Route path='transactions' element={<Transactions />} />
+                                <Route path='registerAdmin' element={<RegisterAdmin />} />
+                            </Route>
+                            <Route path='/pay' element={<PayComponent />} />
+                            <Route path='/Sucess' element={<Sucess />} />
+                            <Route path='bill' element={<Receipt />} />
+                        </Routes>
+                        <Footer />
+                    </Router>
+                </CartProvider>
+            </FoodProvider>
+        </>
+    );
 }
 
 export default App;
