@@ -5,11 +5,11 @@ import multer from 'multer'
 import { storage } from '../../cloudinary/cloudinary';
 import { processRequestBody, processRequestParams } from 'zod-express-middleware'
 import catchAsync from '../../utils/catchAsync';
-import { requireEmployee } from '../../middlewares/requireUser';
+import { requireAdmin } from '../../middlewares/requireUser';
 const upload = multer({ storage })
 const uploadFoodRouter = express.Router()
 
-uploadFoodRouter.post('/uploadFood',requireEmployee,upload.single('image'),processRequestBody(uploadFoodSchema),catchAsync(uploadFoodController))
+uploadFoodRouter.post('/uploadFood',requireAdmin,upload.single('image'),processRequestBody(uploadFoodSchema),catchAsync(uploadFoodController))
 uploadFoodRouter.get('/',catchAsync(getUploadedFoodController))
-uploadFoodRouter.delete('/:uploadFoodId',requireEmployee,processRequestParams(deleteUploadedFoodSchema),catchAsync(deleteUploadedFoodController))
+uploadFoodRouter.delete('/:uploadFoodId',requireAdmin,processRequestParams(deleteUploadedFoodSchema),catchAsync(deleteUploadedFoodController))
 export default uploadFoodRouter

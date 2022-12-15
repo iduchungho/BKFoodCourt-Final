@@ -1,15 +1,19 @@
 import axios from "axios";
 
 export const serverUrl = "http://localhost:3001";
-export const registerCustomer = async (input) => {
+export const registerUser = async (input) => {
     //{{host}}/api/users/register   
     try {
-        const {data} = await axios.post(`${serverUrl}/api/users/register`, input);
-        console.log(data);
+        const {data} = await axios.post(`${serverUrl}/api/users/register`, input , {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem("accessToken")}`,
+                'x-refresh' : localStorage.getItem("refreshToken")
+            }
+        });
         return data;
     }
     catch (error) {
-        return {error: error.message};
+        return null;
     }
 }
 
@@ -18,7 +22,6 @@ export const login = async (input) => {
     try {
         //{{host}}/api/users/login
         const {data} = await axios.post(`${serverUrl}/api/users/login`, {email, password});
-        console.log(data);
         localStorage.setItem("accessToken", data.accessToken);
         localStorage.setItem("refreshToken", data.refreshToken);
         return true;
@@ -55,7 +58,7 @@ export const logout = async () => {
         localStorage.removeItem("refreshToken");
     }
     catch (error) {
-        return {error: error.message};
+        return null;
     }
 }
 

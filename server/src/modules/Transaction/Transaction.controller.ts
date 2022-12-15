@@ -1,6 +1,6 @@
-import { TransactionInfo, TransactionItemInfo } from "./Transaction.schema";
+import { TransactionInfo, TransactionItemInfo } from "./transaction.schema";
 import { NextFunction, Request, Response } from "express";
-import { createTransaction, getAllTransactions, getTotalPriceToday, getTransactionByUserId, updateTransactionStatus } from "./Transaction.service";
+import { createTransaction, getAllTransactions, getTotalPriceToday, getTransactionByUserId, updateTransactionStatus } from "./transaction.service";
 import { StatusCodes } from "http-status-codes";
 import ExpressError from "../../utils/expressError";
 

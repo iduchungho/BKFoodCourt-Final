@@ -8,7 +8,7 @@ import { Button, Modal } from 'react-bootstrap';
 import { deleteFood } from '../../../utils/uploadFood.utils';
 import { BsTrash } from 'react-icons/bs';
 
-function FoodItem({food}) {
+function FoodItem({food,type,quantity}) {
     const [show, setShow] = useState({
         show: false,
         food: null,
@@ -40,7 +40,11 @@ function FoodItem({food}) {
                     <span>{food.price} VND</span>
                 </div>
                 {/* <FontAwesomeIcon className= "icon icon_trash ms-3" onClick={() => handleShow(food)} icon={BsTrash} /> */}
-                <div onClick={() => handleShow(food)}><BsTrash/></div>
+                {
+                    type === "transaction" ? 
+                    <div className="d-flex">Quantity : {quantity}</div>
+                     : <BsTrash className= "icon icon_trash ms-3" onClick={() => handleShow(food)} />
+                }
             </div>
             <Modal show={show.show} onHide={handleClose}>
                 <Modal.Header closeButton>

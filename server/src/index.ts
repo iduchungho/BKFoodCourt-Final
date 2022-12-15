@@ -14,7 +14,7 @@ import cors, { CorsOptions } from "cors";
 import express, { NextFunction, Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 import deserializeUser from "./middlewares/deserializeUser";
-import transactionRouter from "./modules/Transaction/Transaction.route";
+import transactionRouter from "./modules/Transaction/transaction.route";
 import uploadFoodRouter from "./modules/uploadFood.ts/uploadFood.route";
 import userRouter from "./modules/user/user.route";
 import ExpressError from "./utils/expressError";

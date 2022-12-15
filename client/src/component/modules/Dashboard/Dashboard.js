@@ -12,22 +12,30 @@ function Dashboard() {
     return (
         <Container fluid>
             <Row>
-                <Col xs = {3} className = "col_3">
+                <Col xs={3} className="col_3">
                     <div className="box d-flex flex-column align-items-center">
                         <div className="col_3_header">
                             <h4>Dashboard</h4>
                         </div>
-                        <SidebarItem 
-                            title = "Upload Food"
+                        <SidebarItem
+                            title="Upload Food"
                             onClick={() => navigate('/dashboard/upload')}
                         />
                         <SidebarItem
-                            title = "Manage Food"
+                            title="Manage Food"
                             onClick={() => navigate('/dashboard/manage')}
+                        />
+                        <SidebarItem
+                            title="Transactions"
+                            onClick={() => navigate('/dashboard/transactions')}
+                        />
+                        <SidebarItem
+                            title="Register Admin"
+                            onClick={() => navigate('/dashboard/registerAdmin')}
                         />
                     </div>
                 </Col>
-                <Col xs = {9}>
+                <Col xs={9}>
                     <div className="box">
                         <Outlet />
                     </div>

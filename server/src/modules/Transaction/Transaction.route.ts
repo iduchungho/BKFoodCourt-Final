@@ -2,8 +2,8 @@ import express from 'express';
 import { processRequestBody } from 'zod-express-middleware';
 import { requireAdmin, requireUser } from '../../middlewares/requireUser';
 import catchAsync from '../../utils/catchAsync';
-import { TransactionSchema } from './Transaction.schema';
-import { createTransactionController, getAllTransactionsController, getMyTransactionsController, getTransactionsByUserIdController, updateTransactionStatusController } from './Transaction.controller';
+import { TransactionSchema } from './transaction.schema';
+import { createTransactionController, getAllTransactionsController, getMyTransactionsController, getTransactionsByUserIdController, updateTransactionStatusController } from './transaction.controller';
 const transactionRouter = express.Router();
 
 transactionRouter.post('/create',requireUser,processRequestBody(TransactionSchema), catchAsync(createTransactionController))

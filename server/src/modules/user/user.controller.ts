@@ -8,11 +8,8 @@ export const registerController = async (req: Request<{},{},RegisterUserInput>, 
     if(!req.file) {
         return res.status(StatusCodes.BAD_REQUEST).send("Image is required");
     }
-    if(req.body.role === 'admin'){
-        return res.status(StatusCodes.FORBIDDEN).send("Forbidden");
-    }
     else {
-        if(req.body.role === 'employee'){
+        if(req.body.role === 'admin'){
             if(!res.locals.user) {
                 return res.status(StatusCodes.UNAUTHORIZED).send("Unauthorized");
             }
@@ -20,11 +17,11 @@ export const registerController = async (req: Request<{},{},RegisterUserInput>, 
                 return res.status(StatusCodes.FORBIDDEN).send("Forbidden");
             }
             const {path,filename} = req.file;
-            const employee = await registerService(req.body,path,filename);
-            if(!employee) {
-                return res.status(StatusCodes.BAD_REQUEST).send("Employee already exists");
+            const admin = await registerService(req.body,path,filename);
+            if(!admin) {
+                return res.status(StatusCodes.BAD_REQUEST).send("Admin already exists");
             }
-            res.status(StatusCodes.CREATED).send(employee);
+            res.status(StatusCodes.CREATED).send(admin);
         }
         else if(req.body.role === 'customer'){
             const {path,filename} = req.file;
