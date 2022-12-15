@@ -3,7 +3,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import CartProvider from './context/CartContex';
 import UINavbar from './component/UI/Navbar';
 import Footer from './component/UI/Footer';
-import Home from './component/modules/home/Home';
+import Home from './component/modules/Home/Home';
 import Cart from './component/modules/Cart/Cart';
 import Login from './component/modules/Login/Login';
 import Register from './component/modules/Register/Register';
