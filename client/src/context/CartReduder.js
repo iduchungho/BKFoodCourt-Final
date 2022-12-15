@@ -5,7 +5,7 @@ export const CartReducer = (state, action) => {
             let list = state.cartData;
 
             const existingIndex = list.findIndex(
-                (item) => item.key === action.payload.key
+                (item) => item.id === action.payload.id
             );
 
             if (existingIndex >= 0) {
@@ -33,11 +33,11 @@ export const CartReducer = (state, action) => {
                 ...state,
                 cartData: list,
                 cartTotalQuantity: state.cartTotalQuantity + parseInt(action.payload.price) * action.amount,
-                cartTotalAmount: state.cartTotalAmount + parseInt(action.payload.amount)
+                cartTotalAmount: state.cartTotalAmount + parseInt(action.amount)
             };
         case "REMOVE_FROM_CART":
             // console.log(state.cartData)
-            let tempData = state.cartData.filter(item => item.key !== action.payload.key);
+            let tempData = state.cartData.filter(item => item.id !== action.payload.id);
             // console.log(tempData);
             window.localStorage.setItem("FOOD_ITEM", JSON.stringify(tempData));
             return {

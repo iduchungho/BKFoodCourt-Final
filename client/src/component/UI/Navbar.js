@@ -5,7 +5,7 @@
  */
 
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -19,7 +19,8 @@ import Logo from './Logo';
 import Cart from '../modules/Cart/Cart';
 import { CartState } from '../../context/CartContex';
 import { useNavigate } from 'react-router-dom';
-// import UserAvt from '../utils/user.utils';
+import UserAvt from '../utils/user.utils';
+import {getMe} from '../../utils/user.utils';
 
 
 function UINavbar() {
@@ -28,11 +29,12 @@ function UINavbar() {
     const handleShowCart = () => setShowCart(true);
     const handleCloseCart = () => setShowCart(false);
     const navigate = useNavigate();
+    const [user, setUser] = useState("");
+    useEffect(() => {
+        console.log("hello");
+        getMe().then(data => setUser(data))
+    },[])
 
-    // const onLogin = () => {
-    //     return UserAvt();
-    //     // <Button>Đăng nhập</Button>
-    // }
 
     const cartInfo = () => {
         return (
@@ -42,17 +44,17 @@ function UINavbar() {
             </>
         )
     }
-    const handleRegister = () => {
-        navigate('/register');
-    }
-    // const handleLogin = () => {
-    //     navigate('/login');
+    // const handleRegister = () => {
+    //     navigate('/register');
     // }
+    const handleLogin = () => {
+        navigate('/login');
+    }
     return (
         <Navbar collapseOnSelect expand="xl" bg="light" variant="light" sticky='top' key='sm'>
             <Container className='nv-container'>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                <Navbar.Brand href="#home"><Logo /></Navbar.Brand>
+                <Navbar.Brand href="/#home"><Logo /></Navbar.Brand>
                 <Navbar.Offcanvas
                     id={`offcanvasNavbar-expand-xl`}
                     aria-labelledby={`offcanvasNavbarLabel-expand-xl`}
@@ -101,8 +103,11 @@ function UINavbar() {
                             <Cart />
                         </Offcanvas.Body>
                     </Offcanvas>
-                    <Button variant="secondary" onClick={handleRegister}>Đăng ký</Button>
+                    {/* <Button variant="secondary" onClick={handleRegister}>Đăng ký</Button> */}
                     {/* <Button variant="primary" onClick={handleLogin}>Đăng nhập</Button> */}
+                    {
+                        user ? <UserAvt user={user} /> : <Button variant="primary" onClick={handleLogin}>Đăng nhập</Button>
+                    }
                     {/* {onLogin()} */}
                     {/* <UserAvt/> */}
                     {/* <Button>Đăng nhập</Button> */}

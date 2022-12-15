@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const serverUrl = "http://localhost:3001";
+export const serverUrl = "http://localhost:3001";
 export const registerCustomer = async (input) => {
     //{{host}}/api/users/register   
     try {
@@ -39,7 +39,7 @@ export const getMe = async () => {
         return data;
     }
     catch (error) {
-        return {error: error.message};
+        return null;
     }
 }
 
@@ -56,5 +56,15 @@ export const logout = async () => {
     }
     catch (error) {
         return {error: error.message};
+    }
+}
+
+export const getAllFoods = async () => {
+    try{
+        const data = await axios.get(`${serverUrl}/api/uploadFoods`)
+        return data;
+    }
+    catch (error) {
+        return null;
     }
 }

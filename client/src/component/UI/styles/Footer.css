@@ -48,3 +48,10 @@
 .bi-clock{
     margin-bottom: 3px
 }
+.f__logo{
+    display: flex;
+    margin-bottom: 20px;
+}
+.f___custom{
+    border-top: 10px solid #0d6efd;
+}

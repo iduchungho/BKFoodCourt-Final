@@ -13,26 +13,26 @@ export default function ItemInCart(obj) {
     const { dispatchCart } = CartState();
 
     return (
-        <div className="item-cart-ctn" key={`${obj.key}`}>
+        <div className="item-cart-ctn" key={`${obj.id}`}>
             <img
                 className="i-img"
-                src={obj.img}
+                src={obj.imageUrl}
                 alt="img"
             />
             <div className="i-dec">
                 <div className="i-name">
-                    {obj.name}
+                    {obj.title}
                 </div>
                 <div className="i-price-count">
                     <span >Số lượng: <span className="fs__13px i-a__count">{`${obj.amount}`}</span></span>
-                    <span className="i-a__price">Thành tiền : 9000đ</span>
+                    <span className="i-a__price">Thành tiền : {obj.amount * obj.price}</span>
                 </div>
             </div>
             <div className="food-price">
                 <button
                     className="btn-remove"
                     onClick={() => {
-                        // console.log("clicked remove")
+                        console.log(obj)
                         dispatchCart({
                             type: "REMOVE_FROM_CART",
                             payload: obj,
@@ -79,10 +79,10 @@ export function TotalConfirm() {
 
 export function FoodItem(obj) {
     const [show, setShow] = useState(false);
-    const [count, setCount] = useState(obj.amount);
+    const [count, setCount] = useState(1);
+    const { dispatchCart } = CartState();
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const { dispatchCart } = CartState();
     const plus = () => {
         setCount(count + 1)
     };
@@ -92,19 +92,20 @@ export function FoodItem(obj) {
         }
     };
     return (
-        <div className="item" key={obj.key}>
+        <div className="item" key={obj.id}>
             <div className="item-container" onClick={handleShow}>
                 <img
                     className="item-img"
-                    src={obj.img}
+                    src={obj.imageUrl}
                     alt='img'
                 />
                 <div className="item-txt">
-                    <p className="item-description">
-                        {obj.name}
-                    </p>
+                    <span className="item-title">{obj.title}</span>
+                    <div className="item-description">
+                        {obj.description}
+                    </div>
                     <div className="price_btn">
-                        <h6>{obj.price}</h6>    
+                        <h6>{obj.price}đ</h6>    
                         <Button
                             className="add-btn"
                         >
@@ -128,7 +129,7 @@ export function FoodItem(obj) {
                 </Offcanvas.Header>
                 <Offcanvas.Body className="no-padding">
                     <div>
-                        <div className="food-container" key={`${obj.name}`}>
+                        <div className="food-container" key={`${obj.title}`}>
                             <div className="food-count">
                                 <button className="btn-count" onClick={minus}><FiMinus /></button>
                                 <span className="fs__13px">{count}</span>
@@ -136,11 +137,16 @@ export function FoodItem(obj) {
                             </div>
                             <img
                                 className="food-img"
-                                src={obj.img}
+                                src={obj.imageUrl}
                                 alt="img"
                             />
-                            <div className="food-name">
-                                {obj.name}
+                            <div className="f__ctn">
+                                <div className="food-name">
+                                    {obj.title}
+                                </div>
+                                <div className="f-description">
+                                    {obj.description}
+                                </div>
                             </div>
                             <div className="food-price">
                                 <span>{obj.price}</span>
