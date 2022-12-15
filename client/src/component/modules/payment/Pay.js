@@ -59,7 +59,7 @@ export default function PayComponent() {
                         </Card.Title>
                         <Card.Body className="bandacotaikhoan">
                             Bạn đã có tài khoản?
-                            <a className="dangnhap" href='/Login'>  đăng nhập</a>
+                            <a className="dangnhap" href='/login'>  đăng nhập</a>
                         </Card.Body>
                         <Card.Body className="inputtt">
                             <Form>
