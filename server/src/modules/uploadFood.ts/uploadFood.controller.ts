@@ -2,7 +2,7 @@ import { deleteUploadedFoodParam, UploadFoodInput } from './uploadFood.schema';
 import { NextFunction, Request, Response } from "express";
 import ExpressError from '../../utils/expressError';
 import { StatusCodes } from 'http-status-codes';
-import { deleteUploadedFoodService, getAllFoodsService, uploadFoodService } from './uploadFood.service';
+import { deleteUploadedFoodService, getAllFoodsService, uploadFoodService, searchFoodsServiceName } from './uploadFood.service';
 export const uploadFoodController = async (req: Request<{},{},UploadFoodInput>, res: Response, next : NextFunction) => {
     if(!req.file) {
         return next(new ExpressError('Image is required',StatusCodes.BAD_REQUEST))
