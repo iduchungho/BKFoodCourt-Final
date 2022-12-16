@@ -18,23 +18,25 @@ export default function Receipt() {
                 <h3 className="text-center">
                     Transactions History
                 </h3>
-                <Table bordered hover>
-                    <thead className="bg-secondary text-white">
-                        <tr>
-                            <th>#</th>
-                            <th>TransactionId</th>
-                            <th>Status</th>
-                            <th>Total price</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            transactions.map((transaction, index) => {
-                                return <TransactionCell transaction={transaction} index={index + 1} type={"personal"} key={transaction.id} />
-                            })
-                        }
-                    </tbody>
-                </Table>
+                <div className='trans__'>
+                    <Table bordered hover>
+                        <thead className="bg-secondary text-white">
+                            <tr>
+                                <th>#</th>
+                                <th>TransactionId</th>
+                                <th>Status</th>
+                                <th>Total price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                transactions.map((transaction, index) => {
+                                    return <TransactionCell transaction={transaction} index={index + 1} type={"personal"} key={transaction.id} />
+                                })
+                            }
+                        </tbody>
+                    </Table>
+                </div>
             </Container>
         </>
     );
