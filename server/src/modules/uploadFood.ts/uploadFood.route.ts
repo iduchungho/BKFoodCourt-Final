@@ -11,5 +11,6 @@ const uploadFoodRouter = express.Router()
 
 uploadFoodRouter.post('/uploadFood',requireAdmin,upload.single('image'),processRequestBody(uploadFoodSchema),catchAsync(uploadFoodController))
 uploadFoodRouter.get('/',catchAsync(getUploadedFoodController))
+uploadFoodRouter.get('/:name',catchAsync(searchUploadedFoodController))
 uploadFoodRouter.delete('/:uploadFoodId',requireAdmin,processRequestParams(deleteUploadedFoodSchema),catchAsync(deleteUploadedFoodController))
 export default uploadFoodRouter
