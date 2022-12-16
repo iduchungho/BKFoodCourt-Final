@@ -19,7 +19,7 @@ export default function Home() {
         setDrink("food-type type-active");
         setFood("food-type")
     }
-    const onInputSearchbar = () => {
+    const onInputSearchbar = (event) => {
         axios.get('http://localhost:3001/api/uploadFoods/' + document.getElementById("spain").value)
             .then(
                 function (response) {
