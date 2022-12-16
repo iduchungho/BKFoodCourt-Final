@@ -17,7 +17,7 @@ function Manage() {
     return (
         <>
             <h3 className="text-center">
-                Manage food
+                Quản lý món ăn
             </h3>
             <div className="foodManager">
                 {
