@@ -39,13 +39,13 @@ function RegisterAdmin() {
             <div className="res__title">Đăng kí account cho admin khác</div>
             <Form onSubmit={(e) => { handleRegister(e) }} className='form__ctn'>
                 <Form.Label>Email:</Form.Label>
-                <Form.Control type="email" value = {email} placeholder="Your email" className="mb-3" onChange={(e) => setEmail(e.target.value)} />
+                <Form.Control type="email" value = {email} placeholder="Email" className="mb-3" onChange={(e) => setEmail(e.target.value)} />
                 <Form.Label>Fullname:</Form.Label>
-                <Form.Control type="text" value = {username} placeholder="Your Full name" className="mb-3" onChange={(e) => setUsername(e.target.value)} />
+                <Form.Control type="text" value = {username} placeholder="Full name" className="mb-3" onChange={(e) => setUsername(e.target.value)} />
                 <Form.Label>Password:</Form.Label>
-                <Form.Control type="password" value = {password} placeholder="Your password" className="mb-3" onChange={(e) => setPassword(e.target.value)} />
+                <Form.Control type="password" value = {password} placeholder="Password" className="mb-3" onChange={(e) => setPassword(e.target.value)} />
                 <Form.Label>Confirm password:</Form.Label>
-                <Form.Control type="password" value = {confirmPassword} placeholder="Your confirm password" className="mb-3" onChange={(e) => setConfirmPassword(e.target.value)} />
+                <Form.Control type="password" value = {confirmPassword} placeholder="Confirm password" className="mb-3" onChange={(e) => setConfirmPassword(e.target.value)} />
                 <Form.Label>Avatar :</Form.Label>
                 <Form.Control
                     type="file"

@@ -42,21 +42,21 @@ function FoodItem({food,type,quantity}) {
                 {/* <FontAwesomeIcon className= "icon icon_trash ms-3" onClick={() => handleShow(food)} icon={BsTrash} /> */}
                 {
                     type === "transaction" ? 
-                    <div className="d-flex">Quantity : {quantity}</div>
+                    <div className="d-flex">Số lượng {quantity}</div>
                      : <BsTrash className= "icon icon_trash ms-3" onClick={() => handleShow(food)} />
                 }
             </div>
             <Modal show={show.show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Warning</Modal.Title>
+                    <Modal.Title>Cảnh báo</Modal.Title>
                 </Modal.Header>
-                <Modal.Body>Do you want to delete {show?.food?.title} ?</Modal.Body>
+                <Modal.Body>Bạn có muốn xoá {show?.food?.title} ?</Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
-                        Close
+                        Đóng
                     </Button>
                     <Button variant="danger" onClick={() => handleDelete(show?.food?.id)}>
-                        Save Changes
+                        Xoá món ăn
                     </Button>
                 </Modal.Footer>
             </Modal>

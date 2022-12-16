@@ -49,7 +49,7 @@ function FoodForm() {
 
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Tên món ăn :</Form.Label>
-                        <Form.Control required type="text" placeholder="Enter your title" onChange={(e)=>{setTitle(e.target.value)}} />
+                        <Form.Control required type="text" placeholder="Tên món ăn" onChange={(e)=>{setTitle(e.target.value)}} />
                     </Form.Group>
 
 
@@ -62,7 +62,7 @@ function FoodForm() {
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Mô tả :</Form.Label>
-                        <Form.Control required type="text" placeholder="Enter your description" onChange={(e)=>{setDescription(e.target.value)}} />
+                        <Form.Control required type="text" placeholder="Mô tả" onChange={(e)=>{setDescription(e.target.value)}} />
                     </Form.Group>
 
                     <Form.Group className="position-relative mb-3">
@@ -98,7 +98,7 @@ function FoodForm() {
                         <Form.Label>Giá:</Form.Label>
                         <InputGroup className="mb-3">
                             <InputGroup.Text>đ</InputGroup.Text>
-                            <Form.Control required type="number" aria-label="Amount (to the nearest dollar)" onChange={(e)=>{setPrice(e.target.value)}}/>
+                            <Form.Control placeholder = "Giá"required type="number" aria-label="Amount (to the nearest dollar)" onChange={(e)=>{setPrice(e.target.value)}}/>
                         </InputGroup>
                     </Form.Group>
 

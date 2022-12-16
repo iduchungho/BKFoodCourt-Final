@@ -23,10 +23,10 @@ function Transactions() {
                     <thead className="bg-secondary text-white">
                         <tr>
                             <th>#</th>
-                            <th>Customer Information</th>
-                            <th>TransactionId</th>
-                            <th>Status</th>
-                            <th>Total price</th>
+                            <th>Thông tin khách hàng</th>
+                            <th>Mã đơn hàng</th>
+                            <th>Tình trạng</th>
+                            <th>Tổng tiền</th>
                         </tr>
                     </thead>
                     <tbody>
