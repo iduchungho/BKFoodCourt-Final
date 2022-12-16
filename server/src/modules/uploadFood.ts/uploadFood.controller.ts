@@ -27,3 +27,10 @@ export const deleteUploadedFoodController = async (req: Request<deleteUploadedFo
     }
     res.status(StatusCodes.OK).send("Food deleted successfully");
 }
+
+export const searchUploadedFoodController = async (req: Request, res: Response) => {
+    const {name} = req.params;
+    const foods = await searchFoodsServiceName(name);
+    res.status(StatusCodes.OK).send(foods);
+    
+}

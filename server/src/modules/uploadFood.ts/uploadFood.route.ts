@@ -1,6 +1,6 @@
 import {deleteUploadedFoodSchema, uploadFoodSchema } from './uploadFood.schema';
 import express from 'express'
-import { deleteUploadedFoodController, getUploadedFoodController, uploadFoodController } from './uploadFood.controller'
+import { deleteUploadedFoodController, getUploadedFoodController, uploadFoodController, searchUploadedFoodController } from './uploadFood.controller'
 import multer from 'multer'
 import { storage } from '../../cloudinary/cloudinary';
 import { processRequestBody, processRequestParams } from 'zod-express-middleware'
