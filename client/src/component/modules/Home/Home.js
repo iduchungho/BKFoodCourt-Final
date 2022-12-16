@@ -1,16 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 // import { FoodItem } from '../../UI/Item';
-import MenuFood, { MenuDrink } from '../Menu/Menu';
+import MenuFood, { MenuDrink, SearchMenu } from '../Menu/Menu';
 import Form from "react-bootstrap/Form"
 import InputGroup from "react-bootstrap/InputGroup"
 import Button from "react-bootstrap/Button";
 import bunsbo from '../../../img/paper.png'
 import './Home.css'
 import { BsSearch } from 'react-icons/bs'
-import axios from 'axios'
+import { searchFood } from '../../../utils/uploadFood.utils';
 export default function Home() {
     const [Food, setFood] = useState("food-type active")
     const [Drink, setDrink] = useState("food-type")
+    const [query, setQuery] = useState("");
+    const [searchedFood, setSearchedFood] = useState([]);
+    const [isSearch, setIsSearch] = useState(false);
     const onClickFood = () => {
         setDrink("food-type");
         setFood("food-type type-active")
@@ -19,17 +22,10 @@ export default function Home() {
         setDrink("food-type type-active");
         setFood("food-type")
     }
-    const onInputSearchbar = (event) => {
-        axios.get('http://localhost:3001/api/uploadFoods/' + document.getElementById("spain").value)
-            .then(
-                function (response) {
-                    console.log(response.data)
-                }
-            )
-            .catch(function (error) {
-                console.log(error);
-            });
-
+    const handleSearch = async (query) => {
+        const result = await searchFood(query);
+        setSearchedFood(result);
+        setIsSearch(true);
     }
     return (
         <div id="home">
@@ -51,7 +47,7 @@ export default function Home() {
             <ul className='food-type_tab'>
                 <li className={Food} onClick={onClickFood}><a href="#Food">Đồ ăn</a></li>
                 <li className={Drink} onClick={onClickDrink}><a href='#Drink'>Đồ uống</a></li>
-                <div className='search-bar' onInput={onInputSearchbar}>
+                <div className='search-bar'>
                     {/* <Form className="d-flex">
                         <Form.Control
                             type="search"
@@ -61,24 +57,42 @@ export default function Home() {
                         />
                         <Button variant="outline-success"><BsSearch/></Button>
                     </Form> */}
+                    <Form onSubmit = {(e) =>{
+                        e.preventDefault();
+                        e.stopPropagation();
+                        handleSearch(query);
+                    }}>
                     <InputGroup className="d-flex input__gr">
                         <Form.Control
-                            id = "spain"
                             type='search'
                             placeholder="Search"
                             aria-label="Search"
                             aria-describedby="basic-addon2"
                             className='input__gr'
+                            onChange={(event) => {
+                                if(event.target.value === '') {
+                                    setIsSearch(false);
+                                }
+                                setQuery(event.target.value)
+                            }}
                         />
                         <Button variant="success" id="button-addon2" className='input__gr'>
                             <BsSearch />
                         </Button>
                     </InputGroup>
+                    </Form>
                 </div>
             </ul>
             <div className='home-container' id="menu-section">
-                <MenuFood />
-                <MenuDrink />
+                    {
+                        !isSearch ?
+                        <>
+                            <MenuFood />
+                            <MenuDrink />
+                        </>
+                        : 
+                        <SearchMenu searchedFood = {searchedFood}/>
+                    }
             </div>
         </div>
     );
