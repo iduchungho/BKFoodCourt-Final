@@ -16,7 +16,7 @@ export default function Receipt() {
         <>
             <Container className = "vh-100">
                 <h3 className="text-center">
-                    Transactions History
+                    Lịch sử mua hàng
                 </h3>
                 <div className='trans__'>
                     <Table bordered hover>
