@@ -14,9 +14,9 @@ export default function Receipt() {
     }, [])
     return (
         <>
-            <Container>
+            <Container className = "vh-100">
                 <h3 className="text-center">
-                    Transactions table
+                    Transactions History
                 </h3>
                 <Table bordered hover>
                     <thead className="bg-secondary text-white">

@@ -29,7 +29,7 @@ function TransactionCell({ transaction, index ,type }) {
     }
     return (
         <>
-            <tr onClick={()=> {handleShow(transaction)}}>
+            <tr style = {{cursor:'pointer'}}onClick={()=> {handleShow(transaction)}}>
                 <td>{index}</td>
                 {
                     type !== "personal" ? 
