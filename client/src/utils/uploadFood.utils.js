@@ -45,3 +45,14 @@ export const deleteFood = async (id) => {
         return false;
     }
 }
+
+export const searchFood = async (query) => {
+    //{{host}}/api/uploadFoods/{{query}}
+    try {
+        const {data} = await axios.get(`${serverUrl}/api/uploadFoods/${query}`)
+        return data;
+    }
+    catch (error) {
+        return null;
+    }
+}

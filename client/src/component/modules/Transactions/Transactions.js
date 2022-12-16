@@ -7,16 +7,22 @@ import './style.css';
 
 function Transactions() {
     const [transactions, setTransactions] = useState([]);
-    
+    const [turnover, setTurnover] = useState(0);
     useEffect(() => {
         getAllTransactions().then((res) => {
             setTransactions(res);
+            // calculate turnover
+            let total = 0;
+            res.forEach((item) => {
+                total += parseInt(item.total);
+            })
+            setTurnover(total);
         })
     },[])
     return (
         <>
             <h3 className="text-center">
-                Transactions table
+                <b>Tổng doanh thu</b> : {turnover} VND, <b>Tổng số đơn hàng</b> : {transactions.length}
             </h3>
             <div className="trans__">
                 <Table bordered hover>
