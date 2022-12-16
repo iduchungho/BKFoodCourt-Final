@@ -26,7 +26,8 @@ if (process.env.NODE_ENV !== 'production') {
  * App Variables
  */
 const app = express();
-const port = process.env.PORT || 3000;
+//const port = process.env.PORT || 3000;
+const port = 3001;
 const corsOptions: CorsOptions = {
     credentials: true,
     origin: true,

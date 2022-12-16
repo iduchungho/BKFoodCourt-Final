@@ -20,7 +20,17 @@ export const getAllFoodsService = async () => {
     const foods = await prisma.uploadFood.findMany();
     return foods;
 }
-
+export const searchFoodsServiceName = async (name: string) => {
+    const foods = await prisma.uploadFood.findMany({
+        where: {
+            title: {
+                contains: name,
+                mode: 'insensitive'
+            }
+        }
+    });
+    return foods;
+}
 export const deleteUploadedFoodService = async (uploadFoodId : string) => {
     const food = await prisma.uploadFood.findUnique({
         where : {

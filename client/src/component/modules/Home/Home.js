@@ -7,7 +7,7 @@ import Button from "react-bootstrap/Button";
 import bunsbo from '../../../img/paper.png'
 import './Home.css'
 import { BsSearch } from 'react-icons/bs'
-
+import axios from 'axios'
 export default function Home() {
     const [Food, setFood] = useState("food-type active")
     const [Drink, setDrink] = useState("food-type")
@@ -18,6 +18,18 @@ export default function Home() {
     const onClickDrink = () => {
         setDrink("food-type type-active");
         setFood("food-type")
+    }
+    const onInputSearchbar = () => {
+        axios.get('http://localhost:3001/api/uploadFoods/' + document.getElementById("spain").value)
+            .then(
+                function (response) {
+                    console.log(response.data)
+                }
+            )
+            .catch(function (error) {
+                console.log(error);
+            });
+
     }
     return (
         <div id="home">
@@ -39,7 +51,7 @@ export default function Home() {
             <ul className='food-type_tab'>
                 <li className={Food} onClick={onClickFood}><a href="#Food">Đồ ăn</a></li>
                 <li className={Drink} onClick={onClickDrink}><a href='#Drink'>Đồ uống</a></li>
-                <div className='search-bar'>
+                <div className='search-bar' onInput={onInputSearchbar}>
                     {/* <Form className="d-flex">
                         <Form.Control
                             type="search"
@@ -51,6 +63,7 @@ export default function Home() {
                     </Form> */}
                     <InputGroup className="d-flex input__gr">
                         <Form.Control
+                            id = "spain"
                             type='search'
                             placeholder="Search"
                             aria-label="Search"
