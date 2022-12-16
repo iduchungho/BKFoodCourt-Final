@@ -35,8 +35,8 @@ function App() {
                                 <Route path='transactions' element={<Transactions />} />
                                 <Route path='registerAdmin' element={<RegisterAdmin />} />
                             </Route>
-                            <Route path='/pay' element={<PayComponent />} />
-                            <Route path='/Sucess' element={<Sucess />} />
+                            <Route path='pay' element={<PayComponent />} />
+                            <Route path='pay/Sucess' element={<Sucess />} />
                             <Route path='bill' element={<Receipt />} />
                         </Routes>
                         <Footer />

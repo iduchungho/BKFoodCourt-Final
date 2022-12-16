@@ -50,3 +50,35 @@ export const getMyTransactions = async () => {
         return null;
     }
 }
+
+export const createTransactions = async (input) => {
+    try{
+        const {
+            transactionItem,
+            status,
+            typeOfTransaction,
+            phone,
+            address,
+            note,
+            total
+        } = input;
+        const { data } = await axios.post(`${serverUrl}/api/transactions/create`, {
+            transactionItem,
+            status,
+            typeOfTransaction,
+            phone,
+            address,
+            note,
+            total
+        }, {
+            headers : {
+                'Authorization': `Bearer ${localStorage.getItem("accessToken")}`,
+                'x-refresh': localStorage.getItem("refreshToken")
+            }
+        })
+        return data;
+    }
+    catch{
+        return null;
+    }
+}

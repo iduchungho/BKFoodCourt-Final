@@ -83,6 +83,7 @@ export function FoodItem(obj) {
     const { dispatchCart } = CartState();
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const [note, setNote] = useState("");
     const plus = () => {
         setCount(count + 1)
     };
@@ -154,12 +155,10 @@ export function FoodItem(obj) {
                         </div>
                         <div className="form-ctn_top" />
                         <div className="form_ctn">
-                            <Form>
-                                <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                                    <Form.Label><h5>Ghi chú đặc biệt</h5></Form.Label>
-                                    <Form.Control as="textarea" rows={3} />
-                                </Form.Group>
-                            </Form>
+                            <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                                <Form.Label><h5>Ghi chú đặc biệt</h5></Form.Label>
+                                <Form.Control type="text" rows={3} onChange={(e) => setNote(e.target.value)} />
+                            </Form.Group>
                         </div>
                         <div className="add_to_cart">
                             <div className="add_to_cart-ctn">
@@ -171,10 +170,15 @@ export function FoodItem(obj) {
                                         variant="primary"
                                         className="add_to_cart-btn-primary"
                                         onClick={() => {
+                                            if (note === "") {
+                                                setNote("None");
+                                            }
+                                            obj.itemNote = note;
                                             dispatchCart({
                                                 type: "ADD_TO_CART",
                                                 payload: obj,
-                                                amount: count
+                                                amount: count,
+                                                // itemNote: note
                                             });
                                             handleClose();
                                         }}

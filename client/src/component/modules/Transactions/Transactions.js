@@ -3,6 +3,7 @@ import { useState } from "react"
 import { Table } from "react-bootstrap"
 import { getAllTransactions } from "../../../utils/transaction.utils";
 import TransactionCell from "./TransactionCell";
+import './style.css';
 
 function Transactions() {
     const [transactions, setTransactions] = useState([]);
@@ -17,24 +18,26 @@ function Transactions() {
             <h3 className="text-center">
                 Transactions table
             </h3>
-            <Table bordered hover>
-                <thead className="bg-secondary text-white">
-                    <tr>
-                        <th>#</th>
-                        <th>Customer Information</th>
-                        <th>TransactionId</th>
-                        <th>Status</th>
-                        <th>Total price</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        transactions.map((transaction,index ) => {
-                            return <TransactionCell transaction={transaction} index = {index+1} key={transaction.id}/>
-                        })
-                    }
-                </tbody>
-            </Table>
+            <div className="trans__">
+                <Table bordered hover>
+                    <thead className="bg-secondary text-white">
+                        <tr>
+                            <th>#</th>
+                            <th>Customer Information</th>
+                            <th>TransactionId</th>
+                            <th>Status</th>
+                            <th>Total price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            transactions.map((transaction, index) => {
+                                return <TransactionCell transaction={transaction} index={index + 1} key={transaction.id} />
+                            })
+                        }
+                    </tbody>
+                </Table>
+            </div>
         </>
 
     )

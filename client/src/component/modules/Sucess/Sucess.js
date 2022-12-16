@@ -1,5 +1,7 @@
 import './Sucess.css'
 function Sucess() {
+    const id = localStorage.getItem("transID");
+    // localStorage.removeItem("transID");
     return (
         <div className="Sucess" >
             <div className='sc__ctn'>
@@ -7,7 +9,7 @@ function Sucess() {
                 <div className="txt2">Cám ơn Quý khách đã mua sắm tại <span>BKFood.com</span>.
                     Đơn hàng của Quý khách đang được xử lý. Mã số đơn hàng của Quý khách là:
                 </div>
-                <div className="code">0169-20221212</div>
+                <div className="code">{id}</div>
                 <div className="txt3">
                     <p>Nhân viên của chúng tôi sẽ sớm liên hệ với Quý khách trong thời gian sớm nhất.</p>
 
