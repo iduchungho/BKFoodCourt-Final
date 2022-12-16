@@ -18,19 +18,19 @@ function Dashboard() {
                             <h4>Dashboard</h4>
                         </div>
                         <SidebarItem
-                            title="Upload Food"
+                            title="Thêm món ăn"
                             onClick={() => navigate('/dashboard/upload')}
                         />
                         <SidebarItem
-                            title="Manage Food"
+                            title="Quản lý món ăn"
                             onClick={() => navigate('/dashboard/manage')}
                         />
                         <SidebarItem
-                            title="Transactions"
+                            title="Xem đơn hàng"
                             onClick={() => navigate('/dashboard/transactions')}
                         />
                         <SidebarItem
-                            title="Register Admin"
+                            title="Đăng ký admin"
                             onClick={() => navigate('/dashboard/registerAdmin')}
                         />
                     </div>

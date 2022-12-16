@@ -54,22 +54,22 @@ function TransactionCell({ transaction, index ,type }) {
                 <Modal.Body>
                     <div className="transaction_detail_container">
                         <div>
-                            <b>Transaction ID</b> : {transaction.id}
+                            <b>tổng tiền</b> : {transaction.id}
                         </div>
                         <div>
-                            <b>Customer name</b> : {transaction.user.username}
+                            <b>Tên khách hàng</b> : {transaction.user.username}
                         </div>
                         <div>
-                            <b>Phone</b> : {transaction.phone}
+                            <b>Số điện thoại</b> : {transaction.phone}
                         </div>
                         <div>
-                            <b>Address</b> : {transaction.address}
+                            <b>Địa chỉ</b> : {transaction.address}
                         </div>
                         <div>
-                            <b>Transaction status</b> : {transaction.status}
+                            <b>Tình trạng đơn hàng</b> : {transaction.status}
                         </div>
                         <div>
-                            <b>Transaction total price</b> : {transaction.total}
+                            <b>Tổng tiền đơn hàng</b> : {transaction.total}
                         </div>
                         {
                             transaction.transactionItems.map((food) => {
@@ -85,7 +85,7 @@ function TransactionCell({ transaction, index ,type }) {
                     {
                         (transaction.status === "Delivered" || type === "personal" ) ? <></> :
                         <Button variant="warning" onClick={() => {handleToDelivered(transaction.id)}}>
-                            Update status to "Delivered"
+                            Cập nhật tình trạng đơn hàng thành "Delivered"
                         </Button>
                     }
                 </Modal.Footer>

@@ -23,7 +23,7 @@ FACULTY OF COMPUTER SCIENCE AND ENGINEERING
 |  No | ID  | Name | Email |
 | --- | --- |  --- |  ---  |
 |  1  |  2013381   |  Hồ Đức Hưng    |   hung.hoduccse@hcmut.edu.vn    |
-|  2  |   |      |       |
+|  2  |  2014121   |   Ngô Gia Phong |   phong.ngo123@hcmut.edu.vn    |
 |  3  |  2120049   |Thới Duy Phát      |  phat.thoi266@hcmut.edu.vn     |
 |  4  |  2013830   | Ngụy Thành Nam    |  nam.nguy81@hcmut.edu.vn     |
 
