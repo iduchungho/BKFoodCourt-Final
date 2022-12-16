@@ -28,13 +28,21 @@ FACULTY OF COMPUTER SCIENCE AND ENGINEERING
 |  4  |  2013830   | Ngụy Thành Nam    |  nam.nguy81@hcmut.edu.vn     |
 
 #### update git mới nhất
-`git pull`
+`git pull --rebase`
 
 #### clone git
 `git clone <url-link>`
 
-#### cách chạy file ReactJS
-`cd front-end`
+#### cách chạy  `Client`
+`cd client` <br/>
+`npm i` <br/>
 `npm start`
 
-#### Quy tắc đặt tên file
+#### cách chạy `Server`
+`cd server` <br/>
+`npm i` <br/>
+`npm run dev` <br/>
+
+
+## Chú ý
+#### Cần file `.env` trong báo cáo để chạy server
