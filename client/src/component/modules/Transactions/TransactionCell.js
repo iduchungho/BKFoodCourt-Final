@@ -50,12 +50,12 @@ function TransactionCell({ transaction, index ,type }) {
             </tr>
             <Modal show={show.show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Transaction detail</Modal.Title>
+                    <Modal.Title>Chi tiết đơn hàng</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <div className="transaction_detail_container">
                         <div>
-                            <b>tổng tiền</b> : {transaction.id}
+                            <b>Mã đơn hàng</b> : {transaction.id}
                         </div>
                         <div>
                             <b>Tên khách hàng</b> : {transaction.user.username}
