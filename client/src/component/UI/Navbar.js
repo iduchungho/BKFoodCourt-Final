@@ -21,6 +21,7 @@ import { CartState } from '../../context/CartContex';
 import { useNavigate } from 'react-router-dom';
 import UserAvt from '../utils/user.utils';
 import {getMe} from '../../utils/user.utils';
+import { formatCash } from '../modules/Cart/Item';
 
 
 function UINavbar() {
@@ -40,7 +41,7 @@ function UINavbar() {
         return (
             <>
                 <BsCart2/>
-                {cart.cartTotalQuantity ? <span className='ml__5px'>{cart.cartTotalQuantity} đ</span> : <span></span>}
+                {cart.cartTotalQuantity ? <span className='ml__5px'>{formatCash(cart.cartTotalQuantity.toString())} đ</span> : <span></span>}
             </>
         )
     }

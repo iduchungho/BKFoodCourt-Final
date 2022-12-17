@@ -5,24 +5,19 @@ import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
 import './Pay.css'
 import { createTransactions } from '../../../utils/transaction.utils';
+import { formatCash } from '../Cart/Item';
 
 
 export default function PayComponent() {
-
-
-  
-    const [items, setItems] = useState([]);
-    const [items2, setItems2] = useState([]);
+    const [items, setItems] = useState("");
+    const [items2, setItems2] = useState("");
     useEffect(() => {
-        const items = JSON.parse(localStorage.getItem('FOOD_TOTAL_QUANTITY'));
-        const items2 = JSON.parse(localStorage.getItem('FOOD_TOTAL_AMOUNT'));
-        if (items || items2) {
-            setItems(items);
-            setItems2(items2);
-        }
+        setItems(formatCash(JSON.parse(localStorage.getItem('FOOD_TOTAL_QUANTITY')).toString()));
+        setItems2(formatCash(JSON.parse(localStorage.getItem('FOOD_TOTAL_AMOUNT')).toString()));
     }, []);
-    // console.log(items);
-        // console.log(items2);const
+    console.log(items);
+    console.log(items2);
+
     const navigate = useNavigate()
     const [cash, setCash] = useState(false);
     const [phone, setPhone] = useState("");
@@ -152,7 +147,7 @@ export default function PayComponent() {
                     </Card.Body>
                     <Card.Body className="dongdau">
                         <span className="Tamtinh"> Tạm tính ({items2} Món ) </span>
-                        <span className="gia1"> ₫{items} </span>
+                        <span className="gia1"> {items} ₫ </span>
                     </Card.Body>
                     <Card.Body className="donghai">
                         <span className="giamgia"> Giảm giá </span>
@@ -165,7 +160,7 @@ export default function PayComponent() {
                             Đã bao gồm thuế (nếu có)
                             </span>
                         </div>
-                        <span className="gia3"> ₫{items} </span>
+                        <span className="gia3"> {items} ₫ </span>
                     </Card.Body>
                     <Card.Body>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">

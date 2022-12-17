@@ -4,10 +4,11 @@ import { Table } from "react-bootstrap"
 import { getAllTransactions } from "../../../utils/transaction.utils";
 import TransactionCell from "./TransactionCell";
 import './style.css';
+import { formatCash } from "../Cart/Item";
 
 function Transactions() {
     const [transactions, setTransactions] = useState([]);
-    const [turnover, setTurnover] = useState(0);
+    const [turnover, setTurnover] = useState("");
     useEffect(() => {
         getAllTransactions().then((res) => {
             setTransactions(res);
@@ -16,7 +17,7 @@ function Transactions() {
             res.forEach((item) => {
                 total += parseInt(item.total);
             })
-            setTurnover(total);
+            setTurnover(formatCash(total.toString()));
         })
     },[])
     return (

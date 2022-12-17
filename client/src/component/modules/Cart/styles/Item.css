@@ -228,6 +228,10 @@
     color: #9a9a9a;
     margin-left: 10px;
 }
+.cash{
+    font-weight: bold;
+    color: rgb(71, 99, 223);
+}
 @media only screen and (max-width: 600px){
     .food-container {
         display: flex;

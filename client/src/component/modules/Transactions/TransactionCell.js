@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { updateTransactionStatus } from "../../../utils/transaction.utils";
+import { formatCash } from "../Cart/Item";
 import FoodItem from "../Manage/FoodItem";
 
 function TransactionCell({ transaction, index ,type }) {
@@ -45,7 +46,7 @@ function TransactionCell({ transaction, index ,type }) {
                 }
                 <td>{transaction.id}</td>
                 <td>{transaction.status}</td>
-                <td>{transaction.total}</td>
+                <td className="cash">{formatCash(transaction.total)}</td>
             </tr>
             <Modal show={show.show} onHide={handleClose}>
                 <Modal.Header closeButton>
@@ -69,7 +70,7 @@ function TransactionCell({ transaction, index ,type }) {
                             <b>Tình trạng đơn hàng</b> : {transaction.status}
                         </div>
                         <div>
-                            <b>Tổng tiền đơn hàng</b> : {transaction.total}
+                            <b>Tổng tiền đơn hàng</b> : <span className="cash">{formatCash(transaction.total)}</span>
                         </div>
                         {
                             transaction.transactionItems.map((food) => {

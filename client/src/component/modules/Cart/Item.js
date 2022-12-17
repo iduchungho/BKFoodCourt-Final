@@ -9,9 +9,16 @@ import Form from 'react-bootstrap/Form';
 import './styles/Item.css'
 import { CartState } from "../../../context/CartContex";
 
+export function formatCash(str) {
+    return str.split('').reverse().reduce((prev, next, index) => {
+        return ((index % 3) ? next : (next + '.')) + prev
+    })
+}
+
 export default function ItemInCart(obj) {
     const { dispatchCart } = CartState();
-
+    let cash = obj.amount * obj.price;
+    let cashString = cash.toString();
     return (
         <div className="item-cart-ctn" key={`${obj.id}`}>
             <img
@@ -25,7 +32,7 @@ export default function ItemInCart(obj) {
                 </div>
                 <div className="i-price-count">
                     <span >Số lượng: <span className="fs__13px i-a__count">{`${obj.amount}`}</span></span>
-                    <span className="i-a__price">Thành tiền : {obj.amount * obj.price}</span>
+                    <span className="i-a__price ">Thành tiền : <span className="cash">{formatCash(cashString)} đ</span></span>
                 </div>
             </div>
             <div className="food-price">
@@ -57,7 +64,7 @@ export function TotalFoodItem() {
                     Tổng
                 </div>
                 <h6 className="sum-price">
-                    {cart.cartTotalQuantity}
+                    <span>{formatCash(cart.cartTotalQuantity.toString())}</span>
                 </h6>
             </div>
         </>
@@ -70,7 +77,7 @@ export function TotalConfirm() {
         <div className="TotalConfirm">
             <div className='cart-price-info'>
                 <div>Tổng cộng</div>
-                <div className="cart-total-price">{cart.cartTotalQuantity} đ</div>
+                <div className="cart-total-price"><span className="cash">{formatCash(cart.cartTotalQuantity.toString())} đ</span></div>
             </div>
             <Button className="btn-payment" href="/pay">Thanh toán</Button>
         </div>
@@ -106,7 +113,7 @@ export function FoodItem(obj) {
                         {obj.description}
                     </div>
                     <div className="price_btn">
-                        <h6>{obj.price}đ</h6>    
+                        <h6 className="cash">{formatCash(obj.price)}đ</h6>    
                         <Button
                             className="add-btn"
                         >
@@ -150,7 +157,7 @@ export function FoodItem(obj) {
                                 </div>
                             </div>
                             <div className="food-price">
-                                <span>{obj.price}</span>
+                                <span className="cash">{formatCash(obj.price)}đ</span>
                             </div>
                         </div>
                         <div className="form-ctn_top" />
