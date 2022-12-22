@@ -46,3 +46,23 @@ FACULTY OF COMPUTER SCIENCE AND ENGINEERING
 
 ## Chú ý
 #### Cần file `.env` trong báo cáo để chạy server
+
+## Một số hình ảnh của trang web
+### Home
+![image](https://user-images.githubusercontent.com/78150104/209157189-22499178-c5ca-4a2d-bf34-cc2b292387b2.png)
+
+### Menu món ăn
+![image](https://user-images.githubusercontent.com/78150104/209157498-417e7ce4-b2ea-4a33-97ab-4c50cd5649e8.png)
+
+### Thông tin món ăn
+![image](https://user-images.githubusercontent.com/78150104/209157662-349a6da7-66be-4709-8abe-8cab961fee82.png)
+
+### Thông tin giỏ hàng
+![image](https://user-images.githubusercontent.com/78150104/209157761-7846e3ed-5e0b-433e-9e9a-1dd6cbbbc1b8.png)
+
+### Đăng nhập
+![image](https://user-images.githubusercontent.com/78150104/209157870-35930630-7e0c-457a-ad95-9e4447c1946f.png)
+
+### Đăng kí 
+![image](https://user-images.githubusercontent.com/78150104/209157984-934fa4e8-2f9e-486e-940d-82596690bcfc.png)
+
