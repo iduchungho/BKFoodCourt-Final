@@ -31,7 +31,7 @@ FACULTY OF COMPUTER SCIENCE AND ENGINEERING
 `git pull --rebase`
 
 #### clone git
-`git clone <url-link>`
+`git clone https://github.com/iduchungho/BKFoodCourt-Project.git`
 
 #### cách chạy  `Client`
 `cd client` <br/>
